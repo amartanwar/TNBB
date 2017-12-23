@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="scenarios.TestExtent">
+        <methods>
+          <include name="reporttestFail"/>
+          <include name="closeApplication"/>
+          <include name="openApplication"/>
+          <include name="tearDown"/>
+          <include name="reporttestSkip"/>
+          <include name="settingUpReport"/>
+        </methods>
+      </class> <!-- scenarios.TestExtent -->
+      <class name="scenarios.TestExtent2">
+        <methods>
+          <include name="closeApplication"/>
+          <include name="reporttestFail"/>
+          <include name="reporttestSkip"/>
+          <include name="openApplication"/>
+          <include name="tearDown"/>
+          <include name="settingUpReport"/>
+        </methods>
+      </class> <!-- scenarios.TestExtent2 -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

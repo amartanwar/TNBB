@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="14930" started-at="2017-12-20T09:32:41Z" finished-at="2017-12-20T09:32:55Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="14930" started-at="2017-12-20T09:32:41Z" finished-at="2017-12-20T09:32:55Z">
+      <class name="scenarios.TestExtent2">
+        <test-method status="PASS" signature="settingUpReport()[pri:0, instance:scenarios.TestExtent2@2353b3e6]" name="settingUpReport" is-config="true" duration-ms="311" started-at="2017-12-20T15:02:40Z" finished-at="2017-12-20T15:02:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- settingUpReport -->
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:scenarios.TestExtent2@2353b3e6]" name="openApplication" is-config="true" duration-ms="14892" started-at="2017-12-20T15:02:41Z" finished-at="2017-12-20T15:02:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openApplication -->
+        <test-method status="PASS" signature="reporttestPass()[pri:0, instance:scenarios.TestExtent2@2353b3e6]" name="reporttestPass" duration-ms="13" started-at="2017-12-20T15:02:55Z" finished-at="2017-12-20T15:02:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporttestPass -->
+        <test-method status="PASS" signature="closeApplication(org.testng.ITestResult)[pri:0, instance:scenarios.TestExtent2@2353b3e6]" name="closeApplication" is-config="true" duration-ms="23" started-at="2017-12-20T15:02:55Z" finished-at="2017-12-20T15:02:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=reporttestPass status=SUCCESS method=TestExtent2.reporttestPass()[pri:0, instance:scenarios.TestExtent2@2353b3e6] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeApplication -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:scenarios.TestExtent2@2353b3e6]" name="tearDown" is-config="true" duration-ms="433" started-at="2017-12-20T15:02:56Z" finished-at="2017-12-20T15:02:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- scenarios.TestExtent2 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

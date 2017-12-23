@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest">
+        <methods>
+          <include name="testingAdvanceLeaseEndToEnd" invocation-numbers="0"/>
+          <include name="closeApplication"/>
+          <include name="openApplication"/>
+          <include name="tearDown"/>
+          <include name="settingUpReport"/>
+        </methods>
+      </class> <!-- scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
