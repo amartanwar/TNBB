@@ -4,18 +4,19 @@ import java.awt.AWTException;
 import java.io.IOException;
 import org.testng.annotations.Test;
 import generic.BaseTest;
-import testscripts.Asset.AssetCreationMethod;
-import testscripts.AssetCostAndValueAssignment.AssetStatusAndValueChangeMethod;
+import testscripts.AssetCreationMethod;
+import testscripts.AssetModule_GenericMethods;
 import testscripts.LTtoSTUpdate.LeaseLTtoSTUpdateMethod;
 import testscripts.Lease.LeaseCreationMethod;
+import testscriptsCostAndValueAssignment.AssetStatusAndValueChangeMethod;
 
 public class LeaseLTtoSTUpdateTest extends BaseTest
 {	
 	@Test(priority=1)
 	public void lTtoSTUpdateTest_TestDataCreation() throws IOException, InterruptedException, AWTException
 	{
-		AssetCreationMethod as = new AssetCreationMethod();
-		as.createAsset(driver, 1);
+	 AssetModule_GenericMethods	as = new AssetModule_GenericMethods();
+		as.createAsset(driver, un, type, usageCondition, accountNumber, factorcategory, contractNumber, divNumber, subDivNumber, locationCode, company, department);
 		
 		AssetStatusAndValueChangeMethod av= new AssetStatusAndValueChangeMethod();
 		av.assetValueAssignement(driver, 1);

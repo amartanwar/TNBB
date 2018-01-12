@@ -2,11 +2,11 @@ package generic;
 
 public class DataProviderGenerator
 {
-	public static  Object[][] objectGenerator(String xlPath,String sheetName)
+	public static  Object[][] objectGenerator(String xlName,String sheetName)
 	{
 		Object[][] data=null;
-		int row=excel.getRowCount(xlPath,sheetName);
-		int cell =excel.getCellCount(xlPath, sheetName);
+		int row=excel.getRowCount("./TestData/"+xlName+".xlsx",sheetName);
+		int cell =excel.getCellCount("./TestData/"+xlName+".xlsx", sheetName);
 
 		
 		data= new Object[row-1][cell];
@@ -15,7 +15,7 @@ public class DataProviderGenerator
 		{
 			for(int j=0;j<cell;j++)
 			{
-				data[i-1][j]=excel.getCellValue(xlPath, sheetName, i, j);
+				data[i-1][j]=excel.getCellValue("./TestData/"+xlName+".xlsx", sheetName, i, j);
 			}
 		}
 		

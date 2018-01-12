@@ -2,55 +2,58 @@ package scenarios;
 
 import java.awt.AWTException;
 import java.io.IOException;
-
 import org.testng.annotations.Test;
-
+import com.aventstack.extentreports.Status;
 import generic.BaseTest;
-import testscripts.Asset.AssetCreationMethod;
-import testscripts.AssetCostAndValueAssignment.AssetStatusAndValueChangeMethod;
-import testscripts.InvoiceDateUpdate.InvoiceDateUpdateMethod;
-import testscripts.InvoiceGeneration.InvoiceGenerationMethod;
-import testscripts.LTtoSTUpdate.LeaseLTtoSTUpdateMethod;
-import testscripts.Lease.LeaseCreationMethod;
-import testscripts.LeaseIncomeUpdate.LeaseIncomeUpdateMethod;
-import testscripts.ReceiptPosting.ReceiptPostingByInvoiceMethod;
-import testscripts.SalesTaxUpdate.SalesTaxUpdateMethod;
+import testDataProvider_Repository.Scenario3;
+import testscripts.AssetModule_GenericMethods;
+import testscripts.AssetValueAndCostAssignement_GenericMethods;
+import testscripts.LeaseModule_GenericMethods;
+import testscripts.ReceiptPostingModule_GenericMethods;
+import testscripts.UpdateModules_GenericMethod;
 
 public class ArrearsLease__ReceiptPosting_ByInvoiceEndToEndTest extends BaseTest
 {
-	@Test(groups="E2E Test")
-	public void testingArrearsLeaseEndToEnd() throws IOException, InterruptedException, AWTException
+	@Test(dataProvider="scenario3_Testdata",dataProviderClass=Scenario3.class)
+	public void testingArrearsLeaseEndToEnd(String un, String type, String usageCondition,String accountNumber,String factorcategory,String contractNumber,String divNumber,
+            String subDivNumber, String locationCode, String company, String department, String cost,
+			String lease_un,String lease_accountNumber, String leaseBillingType, String leaseFrequency, String leaseTerm, String leaseRental,
+			String LT_leaseSequenceNumber, String IncomeUpdate_leaseSequenceNumber, String InvoiceDate_leaseSequenceNumber, String sales_leaseSequenceNumber,
+			String invoiceGeneration_leaseSequenceNumber, String receiptbyinvoice_leaseSeqNumber) throws IOException, InterruptedException, AWTException
 	{
 		test=reports.createTest("testingArrearsLeaseEndToEnd","This test will demonstrate the E2E scenario right form asset creation till receipt posting by invoice");
-		AssetCreationMethod as = new AssetCreationMethod();
-		as.createAsset(driver, 2);
-		System.out.println("Test Case One with Thread Id:- "
-				+ Thread.currentThread().getId());
+		AssetModule_GenericMethods as= new AssetModule_GenericMethods();
+		as.createAsset(driver, un, type, usageCondition, accountNumber, factorcategory, contractNumber, divNumber, subDivNumber, locationCode, company, department);
+		test.log(Status.PASS, "Asset Creation method ran successfully");
+		
+		AssetValueAndCostAssignement_GenericMethods av= new AssetValueAndCostAssignement_GenericMethods();
+		av.assetValueAssignement(driver, cost);
+		test.log(Status.PASS, "Asset value method ran successfully");
+		
+		LeaseModule_GenericMethods lc= new LeaseModule_GenericMethods();
+		lc.createLease(driver, lease_un, lease_accountNumber, leaseBillingType, leaseFrequency, leaseTerm, leaseRental);
+		test.log(Status.PASS, "Lease Creation method ran successfully");
+		
+		UpdateModules_GenericMethod ls= new UpdateModules_GenericMethod();
+		ls.runLeaseLTtoSTUpdate(driver, LT_leaseSequenceNumber);
+		test.log(Status.PASS, "LTtoSt update method ran successfully");
+		
+		ls.runLeaseIncomeUpdate(driver, IncomeUpdate_leaseSequenceNumber);
+		test.log(Status.PASS, "Lease Income method ran successfully");
 
+		ls.runInvoiceDateUpdate(driver, InvoiceDate_leaseSequenceNumber);
+		test.log(Status.PASS, "Invoice Date method ran successfully");
 		
-		AssetStatusAndValueChangeMethod av= new AssetStatusAndValueChangeMethod();
-		av.assetValueAssignement(driver, 2);
+
+		ls.runSalesTaxUpdate(driver, sales_leaseSequenceNumber);
+		test.log(Status.PASS, "Sales tax update method ran successfully");
 		
-		LeaseCreationMethod lc= new LeaseCreationMethod();
-		lc.createLease(driver, 2);
+		ls.runInvoiceGeneration(driver, invoiceGeneration_leaseSequenceNumber);
+		test.log(Status.PASS, "Invoice generation method ran successfully");
 		
-		LeaseLTtoSTUpdateMethod ls= new LeaseLTtoSTUpdateMethod();
-		ls.runLeaseLTtoSTUpdate(driver, 2);
-		
-		LeaseIncomeUpdateMethod li= new LeaseIncomeUpdateMethod();
-		li.runLeaseIncomeUpdate(driver, 2);
-		
-		InvoiceDateUpdateMethod id= new InvoiceDateUpdateMethod();
-		id.runInvoiceDateUpdate(driver, 2);
-		
-		SalesTaxUpdateMethod su= new SalesTaxUpdateMethod();
-		su.runSalesTaxUpdate(driver, 2);
-		
-		InvoiceGenerationMethod ig= new InvoiceGenerationMethod();
-		ig.runInvoiceGeneration(driver, 2);
-		
-		ReceiptPostingByInvoiceMethod rp= new ReceiptPostingByInvoiceMethod();
-		rp.ReceiptPostingByInvoice(driver, 2);
+		ReceiptPostingModule_GenericMethods rp= new ReceiptPostingModule_GenericMethods();
+		rp.ReceiptPostingByInvoice(driver, receiptbyinvoice_leaseSeqNumber);
+		test.log(Status.PASS, "Receipt Posting by invoice method ran successfully");
 		
 	}
 }

@@ -2,12 +2,11 @@ package scenarios;
 
 import java.awt.AWTException;
 import java.io.IOException;
-
 import org.testng.annotations.Test;
 import generic.BaseTest;
-import testscripts.Asset.AssetBulkCreationMethod;
-import testscripts.AssetCostAndValueAssignment.AssetBulkCostAssignmentMethod;
-import testscripts.Lease.LeaseBulkCreationMethod;
+import testscripts.AssetModule_GenericMethods;
+import testscripts.AssetValueAndCostAssignement_GenericMethods;
+import testscripts.LeaseModule_GenericMethods;
 
 
 public class LeaseBulkCreationTest extends BaseTest
@@ -15,24 +14,22 @@ public class LeaseBulkCreationTest extends BaseTest
 	@Test(priority=0)
 	public void runAssetBulkCreation() throws InterruptedException, IOException
 	{
-		AssetBulkCreationMethod ab= new AssetBulkCreationMethod();
+		AssetModule_GenericMethods ab =new AssetModule_GenericMethods();
 		ab.assetCreationWithSameDataSet(driver, 2);
-		System.out.println("Test Case One with Thread Id:- "
-				+ Thread.currentThread().getId());
-
+		
 	}
 	
 	@Test(priority=1)
 	public void runAssetBulkValueAssignment() throws InterruptedException, IOException
 	{
-		AssetBulkCostAssignmentMethod ac= new AssetBulkCostAssignmentMethod();
+		AssetValueAndCostAssignement_GenericMethods ac= new AssetValueAndCostAssignement_GenericMethods();
 		ac.AssetBulkCostAssignmentWithDiffValue(driver, 2);
 	}
 	
 	@Test(priority=2)
 	public void runLeaseBulkCreation() throws InterruptedException, AWTException, IOException
 	{
-		LeaseBulkCreationMethod lbc= new LeaseBulkCreationMethod();
+		LeaseModule_GenericMethods lbc= new LeaseModule_GenericMethods();
 		lbc.LeaseBulkCreation(driver, 2);
 	}
 }

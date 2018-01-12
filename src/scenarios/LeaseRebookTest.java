@@ -4,10 +4,10 @@ import java.awt.AWTException;
 import java.io.IOException;
 import org.testng.annotations.Test;
 import generic.BaseTest;
-import testscripts.Asset.AssetCreationMethod;
-import testscripts.AssetCostAndValueAssignment.AssetStatusAndValueChangeMethod;
+import testscripts.AssetCreationMethod;
 import testscripts.Lease.LeaseCreationMethod;
 import testscripts.Lease.LeaseRebookMethod;
+import testscriptsCostAndValueAssignment.AssetStatusAndValueChangeMethod;
 
 public class LeaseRebookTest extends BaseTest
 {

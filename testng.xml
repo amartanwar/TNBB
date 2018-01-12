@@ -2,8 +2,8 @@
 <suite name="Suite" parallel="classes" thread-count="2">
   <test name="Test">
     <classes>    
-      <class name="scenarios.TestExtent2"/>
-      <class name="scenarios.TestExtent"/>
+      <class name="scenarios.ArrearsLease__ReceiptPosting_ByInvoiceEndToEndTest"/>
+      <class name="scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

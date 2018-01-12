@@ -6,12 +6,12 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import generic.BaseTest;
-import testscripts.Asset.AssetCreationMethod;
-import testscripts.AssetCostAndValueAssignment.AssetStatusAndValueChangeMethod;
+import testscripts.AssetCreationMethod;
 import testscripts.LTtoSTUpdate.LeaseLTtoSTUpdateMethod;
 import testscripts.Lease.LeaseCreationMethod;
 import testscripts.Lease.LeaseRestructureMethod;
 import testscripts.LeaseIncomeUpdate.LeaseIncomeUpdateMethod;
+import testscriptsCostAndValueAssignment.AssetStatusAndValueChangeMethod;
 
 public class LeaseRestructureTest extends BaseTest
 {

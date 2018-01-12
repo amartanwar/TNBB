@@ -32,11 +32,15 @@ public class LeaseMenuPage extends BasePage
 
 	public void clickOnLeaseMenu()
 	{
+		WebDriverWait wt1= new WebDriverWait(driver, 60);
+	    wt1.until(ExpectedConditions.visibilityOf(leaseMenu));
 		leaseMenu.click();
 	}
 	
 	public void clickOnNewLease()
 	{
+		WebDriverWait wt1= new WebDriverWait(driver, 60);
+	    wt1.until(ExpectedConditions.visibilityOf(newLease));
 		newLease.click();
 	}
 	

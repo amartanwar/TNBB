@@ -93,7 +93,7 @@ public class LeaseClassificationPage extends BasePage
 			try
 			{
 				
-				WebDriverWait wt=new WebDriverWait(driver, 10);
+				WebDriverWait wt=new WebDriverWait(driver, 3);
 				wt.until(ExpectedConditions.alertIsPresent());
 				Alert alert = driver.switchTo().alert();
 				alert.accept();

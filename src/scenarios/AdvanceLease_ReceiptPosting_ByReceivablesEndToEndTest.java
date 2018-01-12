@@ -2,22 +2,15 @@ package scenarios;
 
 import java.awt.AWTException;
 import java.io.IOException;
-
 import org.testng.annotations.Test;
-
 import com.aventstack.extentreports.Status;
-
-import TestDataProvider.Scenario1;
 import generic.BaseTest;
-import testscripts.Asset.AssetCreationMethod;
-import testscripts.AssetCostAndValueAssignment.AssetStatusAndValueChangeMethod;
-import testscripts.InvoiceDateUpdate.InvoiceDateUpdateMethod;
-import testscripts.InvoiceGeneration.InvoiceGenerationMethod;
-import testscripts.LTtoSTUpdate.LeaseLTtoSTUpdateMethod;
-import testscripts.Lease.LeaseCreationMethod;
-import testscripts.LeaseIncomeUpdate.LeaseIncomeUpdateMethod;
-import testscripts.ReceiptPosting.ReceiptPostingByReceivablesMethod;
-import testscripts.SalesTaxUpdate.SalesTaxUpdateMethod;
+import testDataProvider_Repository.Scenario1;
+import testscripts.AssetModule_GenericMethods;
+import testscripts.AssetValueAndCostAssignement_GenericMethods;
+import testscripts.LeaseModule_GenericMethods;
+import testscripts.ReceiptPostingModule_GenericMethods;
+import testscripts.UpdateModules_GenericMethod;
 
 public class AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest extends BaseTest
 {
@@ -30,40 +23,35 @@ public class AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest extends BaseT
 	{
 		
 		test=reports.createTest("testingAdvanceLeaseEndToEnd","This test will demonstrate the E2E scenario right form asset creation till receipt posting by receivables");
-		AssetCreationMethod as = new AssetCreationMethod();
+		AssetModule_GenericMethods as= new AssetModule_GenericMethods();
 		as.createAsset(driver, un, type, usageCondition, accountNumber, factorcategory, contractNumber, divNumber, subDivNumber, locationCode, company, department);
 		test.log(Status.PASS, "Asset Creation method ran successfully");
 		
-		
-		AssetStatusAndValueChangeMethod av= new AssetStatusAndValueChangeMethod();
+		AssetValueAndCostAssignement_GenericMethods av= new AssetValueAndCostAssignement_GenericMethods();
 		av.assetValueAssignement(driver, cost);
 		test.log(Status.PASS, "Asset value method ran successfully");
 		
-		LeaseCreationMethod lc= new LeaseCreationMethod();
+		LeaseModule_GenericMethods lc= new LeaseModule_GenericMethods();
 		lc.createLease(driver, lease_accountNumber,lease_un, leaseBillingType, leaseFrequency, leaseTerm, leaseRental);
 		test.log(Status.PASS, "Lease Creation method ran successfully");
 		
-		LeaseLTtoSTUpdateMethod ls= new LeaseLTtoSTUpdateMethod();
+		UpdateModules_GenericMethod ls= new UpdateModules_GenericMethod();
 		ls.runLeaseLTtoSTUpdate(driver, LT_leaseSequenceNumber);
 		test.log(Status.PASS, "LTtoSt update method ran successfully");
 		
-		LeaseIncomeUpdateMethod li= new LeaseIncomeUpdateMethod();
-		li.runLeaseIncomeUpdate(driver, IncomeUpdate_leaseSequenceNumber);
+		ls.runLeaseIncomeUpdate(driver, IncomeUpdate_leaseSequenceNumber);
 		test.log(Status.PASS, "Lease Income method ran successfully");
 		
-		InvoiceDateUpdateMethod id= new InvoiceDateUpdateMethod();
-		id.runInvoiceDateUpdate(driver, InvoiceDate_leaseSequenceNumber);
+		ls.runInvoiceDateUpdate(driver, InvoiceDate_leaseSequenceNumber);
 		test.log(Status.PASS, "Invoice Date method ran successfully");
 		
-		SalesTaxUpdateMethod su= new SalesTaxUpdateMethod();
-		su.runSalesTaxUpdate(driver, sales_leaseSequenceNumber);
+		ls.runSalesTaxUpdate(driver, sales_leaseSequenceNumber);
 		test.log(Status.PASS, "Sales tax update method ran successfully");
 		
-		InvoiceGenerationMethod ig= new InvoiceGenerationMethod();
-		ig.runInvoiceGeneration(driver, invoiceGeneration_leaseSequenceNumber);
+		ls.runInvoiceGeneration(driver, invoiceGeneration_leaseSequenceNumber);
 		test.log(Status.PASS, "Invoice generation method ran successfully");
 		
-		ReceiptPostingByReceivablesMethod rp=new ReceiptPostingByReceivablesMethod();
+		ReceiptPostingModule_GenericMethods rp= new ReceiptPostingModule_GenericMethods();
 		rp.ReceiptPostingByReceivables(driver, receiptbyreceivable_leaseSeqNumber);
 		test.log(Status.PASS, "Receipt Posting method ran successfully");
 		

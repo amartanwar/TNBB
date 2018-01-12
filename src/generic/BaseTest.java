@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -24,6 +23,7 @@ import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import pom.LoginPage;
+import pom.jobListPage;
 
 public abstract class BaseTest implements AutoConst 
 {
@@ -31,11 +31,12 @@ public abstract class BaseTest implements AutoConst
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports reports;
 	public static ExtentTest test;
+	public static String snap;
 	
 	@BeforeSuite
 	public void settingUpReport()
 	{
-		htmlReporter= new ExtentHtmlReporter("D:\\reports\\first15.html");
+		htmlReporter= new ExtentHtmlReporter("D:\\reports\\RegressionTestReport_"+SystemDate.currentDate()+".html");
 		reports= new ExtentReports();
 		reports.attachReporter(htmlReporter);
 		
@@ -66,7 +67,7 @@ public abstract class BaseTest implements AutoConst
 //		String password=excel.getCellValue("./TestData/Input.xlsx", "credentials", 1, 3);
 	
 		//Opening the application
-		driver.get("http://otbapsrv:206");
+		driver.get("http://10.10.105.128:89/");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		LoginPage lp=new LoginPage(driver);
 //		lp.setCompanyName("Merchants-tvqa");
@@ -80,8 +81,8 @@ public abstract class BaseTest implements AutoConst
 		
 		WebDriverWait wait= new WebDriverWait(driver, 56);
 		wait.until(ExpectedConditions.visibilityOf(lp.userName));
-		lp.setuserName("aishwarya.v");
-		lp.setPassword("Samsung-1234");
+		lp.setuserName("odessauser");
+		lp.setPassword("Password-1");
 		lp.clickOnLogin();
 	}
 	
@@ -90,27 +91,29 @@ public abstract class BaseTest implements AutoConst
 	@AfterMethod
 	public void closeApplication(ITestResult result) throws IOException, InterruptedException
 	{
-//		//Taking the screenshot if testcase fails
-//		String testName=result.getName();
-//		int status=result.getStatus();
-//		System.out.println(testName);
-//		if(status==ITestResult.FAILURE)
-//		{
-//			ScreenShot.takeScreenshot(driver,SNAP_PATH+testName);
-//			
-//		}
-//		//closing the browser
-//		driver.quit();
 		
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
 			String name= result.getName();
 			String screenshotpath = ScreenShot.takeScreenshot(driver, SNAP_PATH+name);
-			System.out.println(screenshotpath);
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+" failed becuase of below issue", ExtentColor.RED));
 			test.fail(result.getThrowable());
 			test.fail("SnapShot Below:").addScreenCaptureFromPath(screenshotpath);
-			driver.close();
+			
+			try
+			{
+				jobListPage jl= new jobListPage(driver);
+				snap=jl.clickOnLogDetails();
+				test.fail("LogDetails Below").addScreenCaptureFromPath(snap);
+				driver.quit();
+				
+			}
+			catch (Exception e) 
+			{
+				
+			}
+				
+			
 		}
 		else if(result.getStatus()==ITestResult.SUCCESS)
 		{
@@ -131,7 +134,6 @@ public abstract class BaseTest implements AutoConst
 	public void tearDown()
 	{
 		reports.flush();
-		System.out.println("After suite running");
 	}
 	
 
