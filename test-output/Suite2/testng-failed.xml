@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Suite2]">
+  <test name="Test2(failed)">
+    <classes>
+      <class name="scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest">
+        <methods>
+          <include name="testingAdvanceLeaseEndToEnd"/>
+          <include name="closeApplication"/>
+          <include name="openApplication"/>
+          <include name="tearDown"/>
+          <include name="settingUpReport"/>
+        </methods>
+      </class> <!-- scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest -->
+      <class name="scenarios.LeaseRestructureTest">
+        <methods>
+          <include name="closeApplication"/>
+          <include name="LeaseRestructureSmokeTest"/>
+          <include name="openApplication"/>
+          <include name="tearDown"/>
+          <include name="settingUpReport"/>
+        </methods>
+      </class> <!-- scenarios.LeaseRestructureTest -->
+      <class name="scenarios.LeaseRebookTest">
+        <methods>
+          <include name="closeApplication"/>
+          <include name="LeaseRebookSmokeTest"/>
+          <include name="openApplication"/>
+          <include name="tearDown"/>
+          <include name="settingUpReport"/>
+        </methods>
+      </class> <!-- scenarios.LeaseRebookTest -->
+      <class name="scenarios.LeaseYieldVerificationTest">
+        <methods>
+          <include name="testingLeaseYield"/>
+          <include name="closeApplication"/>
+          <include name="openApplication"/>
+          <include name="tearDown"/>
+          <include name="settingUpReport"/>
+        </methods>
+      </class> <!-- scenarios.LeaseYieldVerificationTest -->
+      <class name="scenarios.ArrearsLease__ReceiptPosting_ByInvoiceEndToEndTest">
+        <methods>
+          <include name="testingArrearsLeaseEndToEnd"/>
+          <include name="closeApplication"/>
+          <include name="openApplication"/>
+          <include name="tearDown"/>
+          <include name="settingUpReport"/>
+        </methods>
+      </class> <!-- scenarios.ArrearsLease__ReceiptPosting_ByInvoiceEndToEndTest -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+</suite> <!-- Failed suite [Suite2] -->
