@@ -8,18 +8,20 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class AssetMenuPage extends BasePage
 {
 
-	@FindBy(id="ctl00ctl04WebMenuControl_3")
+	@FindBy(id="ctl00ctl04WebMenuControl_4")
 	private WebElement assetLink;
 	
-	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_3_2']/td/div")
+	@FindBy(xpath="//*[@id=\'ctl00ctl04WebMenuControl_4_1\']/td/div")
 	private WebElement assetProfile;
 	
-	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_3_11']/td/div")
+	@FindBy(xpath="//*[@id=\'ctl00ctl04WebMenuControl_4_8\']/td/div")
 	private WebElement valueAndStatusChange;
 	
 	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_3_11_1']/td/div")
@@ -33,9 +35,9 @@ public class AssetMenuPage extends BasePage
 	private WebElement locationSetup;
 	
 
-	public AssetMenuPage(WebDriver driver) 
+	public AssetMenuPage(WebDriver driver,ExtentTest test) 
 	{
-		super(driver);
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 	

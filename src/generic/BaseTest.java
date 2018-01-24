@@ -27,7 +27,7 @@ import pom.jobListPage;
 
 public abstract class BaseTest implements AutoConst 
 {
-	public WebDriver driver;
+	public static WebDriver driver;
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports reports;
 	public static ExtentTest test;
@@ -36,7 +36,7 @@ public abstract class BaseTest implements AutoConst
 	@BeforeSuite
 	public void settingUpReport()
 	{
-		htmlReporter= new ExtentHtmlReporter("D:\\reports\\RegressionTestReport_"+SystemDate.currentDate()+".html");
+		htmlReporter= new ExtentHtmlReporter("./Reports/RegressionTestReport_"+SystemDate.currentDate()+".html");
 		reports= new ExtentReports();
 		reports.attachReporter(htmlReporter);
 		
@@ -58,32 +58,27 @@ public abstract class BaseTest implements AutoConst
 		//Open the browser
 		System.setProperty(IE_KEY,IE_VALUE);
 		driver=new InternetExplorerDriver();
-		driver.manage().window().maximize();
-		
-		//Fetching the data from xlsx
-//		String url=excel.getCellValue("./TestData/Input.xlsx", "credentials", 1, 0);
-//		String companyName=excel.getCellValue("./TestData/Input.xlsx", "credentials", 1, 1);
-//		String userName=excel.getCellValue("./TestData/Input.xlsx", "credentials", 1, 2);
-//		String password=excel.getCellValue("./TestData/Input.xlsx", "credentials", 1, 3);
 	
+		
 		//Opening the application
-		driver.get("http://10.10.105.128:89/");
+		driver.get("http://otbperftest:155/");
+        driver.manage().window().maximize(); 
+        
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		LoginPage lp=new LoginPage(driver);
-//		lp.setCompanyName("Merchants-tvqa");
+		LoginPage lp=new LoginPage(driver,test);
+		String currentWindow= driver.getWindowHandle();
 		lp.rideTheLeaseWave();
 		
-		Thread.sleep(2000);
-		for(String winHandle: driver.getWindowHandles())
-		{
-			driver.switchTo().window(winHandle);
-		}
+		SwitchControlToNextWindow sw= new SwitchControlToNextWindow();
+		sw.waitForWndows(driver, currentWindow);
 		
 		WebDriverWait wait= new WebDriverWait(driver, 56);
 		wait.until(ExpectedConditions.visibilityOf(lp.userName));
-		lp.setuserName("odessauser");
-		lp.setPassword("Password-1");
+		lp.setuserName("amar.t");
+		lp.setPassword("Samsung-1234");
 		lp.clickOnLogin();
+		lp.handleAlert();
+		
 	}
 	
 	
@@ -102,7 +97,7 @@ public abstract class BaseTest implements AutoConst
 			
 			try
 			{
-				jobListPage jl= new jobListPage(driver);
+				jobListPage jl= new jobListPage(driver,test);
 				snap=jl.clickOnLogDetails();
 				test.fail("LogDetails Below").addScreenCaptureFromPath(snap);
 				driver.quit();
@@ -118,14 +113,14 @@ public abstract class BaseTest implements AutoConst
 		else if(result.getStatus()==ITestResult.SUCCESS)
 		{
 			test.log(Status.PASS, MarkupHelper.createLabel(result.getName()+" is pass ", ExtentColor.GREEN));
-			driver.close();
+			driver.quit();
 		}
 		
 		else
 		{
 			test.log(Status.SKIP, MarkupHelper.createLabel(result.getName()+" is skipped because of below issue ", ExtentColor.ORANGE));
 			test.skip(result.getThrowable());
-			driver.close();
+			driver.quit();
 		}
 		
 		

@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\amar.t\AppData\Local\Temp\testng-eclipse-276550553\testng-customsuite.xml</span>
+                    <span>C:\Users\amar.t\AppData\Local\Temp\testng-eclipse--419443686\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
                     </span>
-                    <div class="method-list-content failed suite-Default_suite">
+                    <div class="method-list-content passed suite-Default_suite">
                       <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest" hash-for-method="testingAdvanceLeaseEndToEnd(ode-2123, Ambulance_NonOwned, New, al1015, default, Contract2 - Contract2, Division-1 - Division-1, ...)">testingAdvanceLeaseEndToEnd(ode-2123, Ambulance_NonOwned, New, al1015, default, Contract2 - Contract2, Division-1 - Division-1, ...)</a> <!-- method navigator-link -->
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.AssetCreation" hash-for-method="assetCreation">assetCreation</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,62 +117,25 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-failed">
+          <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest</span>
+              <img src="passed.png"/>
+              <span class="class-name">test.AssetCreation</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testingAdvanceLeaseEndToEnd(ode-2123, Ambulance_NonOwned, New, al1015, default, Contract2 - Contract2, Division-1 - Division-1, ...)">
-                  </a> <!-- testingAdvanceLeaseEndToEnd(ode-2123, Ambulance_NonOwned, New, al1015, default, Contract2 - Contract2, Division-1 - Division-1, ...) -->
-                  <span class="method-name">testingAdvanceLeaseEndToEnd</span>
-                  <span class="parameters">(ode-2123, Ambulance_NonOwned, New, al1015, default, Contract2 - Contract2, Division-1 - Division-1, SD-1 - SD-1, AL1015-ALD0009, 7010-EPF, Asset Product1-Test, 3600, al1015, ode-2123, Arrears, Monthly, 36, 110, ode-2123, ode-2123, ode-2123, ode-2123, ode-2123, ode-2123)</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Cannot locate option with index: 1
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:07:36.161Z&apos;
-System info: host: &apos;LW-TAMAR&apos;, ip: &apos;192.168.1.136&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_151&apos;
-Driver info: driver.version: unknown
-	at org.openqa.selenium.support.ui.Select.selectByIndex(Select.java:183)
-	at pom.AssetProfilePage.setDivision(AssetProfilePage.java:122)
-	at testscripts.AssetModule_GenericMethods.createAsset(AssetModule_GenericMethods.java:223)
-	at scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest.testingAdvanceLeaseEndToEnd(AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest.java:27)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:571)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
-	at org.testng.TestNG.runSuites(TestNG.java:1028)
-	at org.testng.TestNG.run(TestNG.java:996)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
+                  <a name="assetCreation">
+                  </a> <!-- assetCreation -->
+                  <span class="method-name">assetCreation</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
+          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\amar.t\AppData\Local\Temp\testng-eclipse-276550553\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\amar.t\AppData\Local\Temp\testng-eclipse--419443686\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -181,7 +144,7 @@ Driver info: driver.version: unknown
 &lt;suite thread-count=&quot;-1&quot; guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest&quot;/&gt;
+      &lt;class name=&quot;test.AssetCreation&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -223,14 +186,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testingAdvanceLeaseEndToEnd')
-data.setCell(0, 2, 'scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest')
-data.setCell(0, 3, 26966);
+data.setCell(0, 1, 'assetCreation')
+data.setCell(0, 2, 'test.AssetCreation')
+data.setCell(0, 3, 35144);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 26 seconds</span>
+              <span class="suite-total-time">Total running time: 35 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -256,28 +219,26 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">scenarios.AdvanceLease_ReceiptPosting_ByReceivablesEndToEndTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">test.AssetCreation</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">settingUpReport</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">openApplication</span>
-                <span class="method-start">6047 ms</span>
+                <span class="method-start">197 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">testingAdvanceLeaseEndToEnd(ode-2123, Ambulance_NonOwned, New, al1015, default, Contract2 - Contract2, Division-1 - Division-1, ...)</span>
-                <span class="method-start">20556 ms</span>
+                <span class="method-name">assetCreation</span>
+                <span class="method-start">10623 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">closeApplication([TestResult name=testingAdvanceLeaseEndToEnd status=FAILURE method=AdvanceLease_ReceiptPosting_ByRec...)</span>
-                <span class="method-start">47550 ms</span>
+                <span class="method-name">closeApplication([TestResult name=assetCreation status=SUCCESS method=AssetCreation.assetCreation()[pri:0, instance:t...)</span>
+                <span class="method-start">45768 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">58254 ms</span>
+                <span class="method-start">45802 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -7,12 +7,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public  class AssetListPage extends BasePage
 {
 
-	@FindBy(id="ctl00_Fr_PH_cmdAdd_cmdButtonControl")
+	
+
+	@FindBy(id="ctl00_FT_PH_cmdAdd_cmdButtonControl")
 	private WebElement adddButton;
 	
 	@FindBy(id="ctl00_ctl04_lnkSignOut")
@@ -34,12 +38,12 @@ public  class AssetListPage extends BasePage
 	@FindBy(id="ctl00_Fr_PH_cmdSelectClient_cmdExportButton")
 	private WebElement selectExportButton;
 	
-	
-	public AssetListPage(WebDriver driver) 
+	public AssetListPage(WebDriver driver,ExtentTest test) 
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
+	
 	
 	public void clickOnaddButton()
 	{

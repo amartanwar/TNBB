@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 import generic.ScreenShot;
 import generic.SwitchControlToNextWindow;
@@ -27,9 +29,9 @@ public class jobListPage extends BasePage
 	@FindBy(id="ctl00_F_PH_cmdView_cmdButtonControl")
 	private WebElement viewButton;
 	
-	public jobListPage(WebDriver driver)
+	public jobListPage(WebDriver driver,ExtentTest test)
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 
