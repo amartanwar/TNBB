@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class AssetValueAndStatusChangePage extends BasePage
@@ -37,8 +39,8 @@ public class AssetValueAndStatusChangePage extends BasePage
 	@FindBy(id="ctl00_Fr_PH_cmdSave_cmdButtonControl")
 	private WebElement saveButton;
 	
-	public AssetValueAndStatusChangePage(WebDriver driver) {
-		super(driver);
+	public AssetValueAndStatusChangePage(WebDriver driver,ExtentTest test) {
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	
