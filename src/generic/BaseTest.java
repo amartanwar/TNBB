@@ -59,7 +59,6 @@ public abstract class BaseTest implements AutoConst
 		System.setProperty(IE_KEY,IE_VALUE);
 		driver=new InternetExplorerDriver();
 	
-		
 		//Opening the application
 		driver.get("http://otbperftest:155/");
         driver.manage().window().maximize(); 
@@ -68,6 +67,7 @@ public abstract class BaseTest implements AutoConst
 		LoginPage lp=new LoginPage(driver,test);
 		String currentWindow= driver.getWindowHandle();
 		lp.rideTheLeaseWave();
+		driver.close();
 		
 		SwitchControlToNextWindow sw= new SwitchControlToNextWindow();
 		sw.waitForWndows(driver, currentWindow);

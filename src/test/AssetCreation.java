@@ -23,7 +23,7 @@ public class AssetCreation extends BaseTest
 		al.clickOnaddButton();
 		
 		AssetProfilePage pa= new AssetProfilePage(driver, test);
-		pa.setUnitNumber("tst36");
+		pa.setUnitNumber("tst37");
 		
 		pa.setAcquiredDate("1/19/2018");
 

@@ -32,11 +32,8 @@ public class ScrollOptions
 	public static void  scrollingEndofAPage() throws AWTException
 	{
 		Robot rb= new Robot();
-		rb.keyPress(KeyEvent.VK_CONTROL);
-		rb.keyPress(KeyEvent.VK_DOWN);
-		rb.keyRelease(KeyEvent.VK_DOWN);
-		rb.keyRelease(KeyEvent.VK_CONTROL);
-	
+		rb.keyPress(KeyEvent.VK_PAGE_DOWN);
+		rb.keyRelease(KeyEvent.VK_PAGE_DOWN);
 	}
 
 	public static void  scrollingEndofAPage2() throws AWTException

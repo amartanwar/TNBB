@@ -27,7 +27,7 @@
 	<classpathentry exported="true" kind="lib" path="D:/amar/Selenium Setup/apache/poi-3.16/poi-ooxml-schemas-3.16.jar"/>
 	<classpathentry exported="true" kind="lib" path="D:/amar/Selenium Setup/apache/poi-3.16/poi-scratchpad-3.16.jar"/>
 	<classpathentry exported="true" kind="lib" path="D:/amar/Selenium Setup/apache/poi-3.16/xmlbeans-2.6.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/amar.t/Downloads/selenium-server-standalone-3.7.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/amar.t/Downloads/selenium-server-standalone-3.7.1.jar" sourcepath="Jars/selenium-server-standalone-3.7.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="D:/amar/Selenium Setup/sqljdbc42.jar"/>
 	<classpathentry exported="true" kind="lib" path="D:/amar/Selenium Setup/GroupDocs.Comparison.jar"/>
 	<classpathentry kind="output" path="bin"/>

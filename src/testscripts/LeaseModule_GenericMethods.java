@@ -6,16 +6,18 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.excel;
 import pom.AssetListPage;
-import pom.CreateNewLeasePage;
+import pom.LeaseCreatePage;
 import pom.CustomerListPage;
 import pom.LeaseAccrualPage;
 import pom.LeaseClassificationPage;
 import pom.LeaseEntryHomePage;
 import pom.LeaseIDCSetupPage;
 import pom.LeaseInventoryInLeasePage;
-import pom.LeaseInvestementPage;
+import pom.LeaseMilageParameterPage;
 import pom.LeaseListPage;
 import pom.LeaseMenuPage;
 import pom.LeasePaymentSchedulePage;
@@ -27,7 +29,7 @@ import pom.RestructureDatePage;
 
 public class LeaseModule_GenericMethods 
 {
-	public void LeaseBulkCreation(WebDriver driver,int numberOfLeases) throws InterruptedException, AWTException, IOException
+	public void LeaseBulkCreation(WebDriver driver,ExtentTest test,int numberOfLeases) throws InterruptedException, AWTException, IOException
 	{
 		for(int row=1;row<=numberOfLeases;row++)
 		{
@@ -43,18 +45,18 @@ public class LeaseModule_GenericMethods
 			//Opening the lease lease creation page
 //			LeaseWaveHeader lwh=new LeaseWaveHeader(driver);
 //			lwh.clickOnPortFolioManagement();
-			LeaseMenuPage lm=new LeaseMenuPage(driver);
+			LeaseMenuPage lm=new LeaseMenuPage(driver, test);
 			lm.clickOnLeaseMenu();
 			lm.clickOnNewLease();
 			
 			//Customer list screen
-			CustomerListPage cl=new CustomerListPage(driver);
+			CustomerListPage cl=new CustomerListPage(driver, test);
 			cl.enterAccountNumber(accountNumber);
 			cl.clickOnsearchButton();
 			cl.clickOnSelectButton();
 			
 			//create new Lease screen
-			CreateNewLeasePage clp= new CreateNewLeasePage(driver);
+			LeaseCreatePage clp= new LeaseCreatePage(driver, test);
 			clp.enterLeaseSequenceNumber(un);
 			clp.clcikOnSaveButton();
 			
@@ -62,11 +64,11 @@ public class LeaseModule_GenericMethods
 			LeaseInventoryInLeasePage ilp=new LeaseInventoryInLeasePage(driver);
 			String beforeWindow = driver.getWindowHandle();
 //			System.out.println("1"+ driver.getTitle());
-			ilp.clickOnAddButton();
+			ilp.clickOnImportButton();
 			
 		
 			//AssetList page
-			AssetListPage asl=new AssetListPage(driver);
+			AssetListPage asl=new AssetListPage(driver, test);
 //			System.out.println("2 "+driver.getTitle());
 			asl.searchByUnitNumber(un);
 //			System.out.println("3 "+driver.getTitle());
@@ -100,12 +102,12 @@ public class LeaseModule_GenericMethods
 			//leaseInvestment screen
 			LeaseEntryHomePage le=new LeaseEntryHomePage(driver);
 			le.clickOnInvestmentScreen();
-			LeaseInvestementPage li=new LeaseInvestementPage(driver);
+			LeaseMilageParameterPage li=new LeaseMilageParameterPage(driver);
 			li.clickOnSaveButton();
 			
 			//LeaseIDC setup screen
 			LeaseIDCSetupPage lIDC=new LeaseIDCSetupPage(driver);
-			lIDC.clickOnCloseButton();
+			lIDC.clickOnSaveButton();
 			
 			//Lease Structure screen
 			le.clickOnStructureScreen();
@@ -126,7 +128,7 @@ public class LeaseModule_GenericMethods
 			lc.selectLeaseAccountingTreatment();
 			lc.selectLeaseBookingGLTemplate();
 			lc.selectLtrToARGLTemplate();
-			lc.selectClientLeaseType();
+			lc.selectProduct();
 			lc.clickOnPerform90PercentTestButton();
 			Thread.sleep(2000);
 			lc.clickOnSaveButton();
@@ -169,14 +171,14 @@ public class LeaseModule_GenericMethods
 				cl.clickOnSelectButton();
 				
 				//create new Lease screen
-				CreateNewLeasePage clp= new CreateNewLeasePage(driver);
+				LeaseCreatePage clp= new LeaseCreatePage(driver);
 				clp.enterLeaseSequenceNumber(lease_un);
 				clp.clcikOnSaveButton();
 				
 				//LeaseInventoryInlease screen
 				LeaseInventoryInLeasePage ilp=new LeaseInventoryInLeasePage(driver);
 				String beforeWindow = driver.getWindowHandle();
-				ilp.clickOnAddButton();
+				ilp.clickOnImportButton();
 				//AssetList page
 				AssetListPage asl=new AssetListPage(driver);
 				asl.searchByUnitNumber(lease_un);
@@ -211,12 +213,12 @@ public class LeaseModule_GenericMethods
 				//leaseInvestment screen
 				LeaseEntryHomePage le=new LeaseEntryHomePage(driver);
 				le.clickOnInvestmentScreen();
-				LeaseInvestementPage li=new LeaseInvestementPage(driver);
+				LeaseMilageParameterPage li=new LeaseMilageParameterPage(driver);
 				li.clickOnSaveButton();
 				
 				//LeaseIDC setup screen
 				LeaseIDCSetupPage lIDC=new LeaseIDCSetupPage(driver);
-				lIDC.clickOnCloseButton();
+				lIDC.clickOnSaveButton();
 				
 				//Lease Structure screen
 				le.clickOnStructureScreen();
@@ -237,7 +239,7 @@ public class LeaseModule_GenericMethods
 				lc.selectLeaseAccountingTreatment();
 				lc.selectLeaseBookingGLTemplate();
 				lc.selectLtrToARGLTemplate();
-				lc.selectClientLeaseType();
+				lc.selectProduct();
 				lc.clickOnPerform90PercentTestButton();
 				Thread.sleep(1000);
 				lc.clickOnSaveButton();
@@ -375,14 +377,14 @@ public class LeaseModule_GenericMethods
 						cl.clickOnSelectButton();
 						
 						//create new Lease screen
-						CreateNewLeasePage clp= new CreateNewLeasePage(driver);
+						LeaseCreatePage clp= new LeaseCreatePage(driver);
 						clp.enterLeaseSequenceNumber(yeild_un);
 						clp.clcikOnSaveButton();
 						
 						//LeaseInventoryInlease screen
 						LeaseInventoryInLeasePage ilp=new LeaseInventoryInLeasePage(driver);
 						String beforeWindow = driver.getWindowHandle();
-						ilp.clickOnAddButton();
+						ilp.clickOnImportButton();
 						//AssetList page
 						AssetListPage asl=new AssetListPage(driver);
 						asl.searchByUnitNumber(yeild_un);
@@ -417,12 +419,12 @@ public class LeaseModule_GenericMethods
 						//leaseInvestment screen
 						LeaseEntryHomePage le=new LeaseEntryHomePage(driver);
 						le.clickOnInvestmentScreen();
-						LeaseInvestementPage li=new LeaseInvestementPage(driver);
+						LeaseMilageParameterPage li=new LeaseMilageParameterPage(driver);
 						li.clickOnSaveButton();
 						
 						//LeaseIDC setup screen
 						LeaseIDCSetupPage lIDC=new LeaseIDCSetupPage(driver);
-						lIDC.clickOnCloseButton();
+						lIDC.clickOnSaveButton();
 						
 						//Lease Structure screen
 						le.clickOnStructureScreen();
@@ -443,7 +445,7 @@ public class LeaseModule_GenericMethods
 						lc.selectLeaseAccountingTreatment();
 						lc.selectLeaseBookingGLTemplate();
 						lc.selectLtrToARGLTemplate();
-						lc.selectClientLeaseType();
+						lc.selectProduct();
 						lc.clickOnPerform90PercentTestButton();
 						Thread.sleep(2000);
 						lc.clickOnSaveButton();

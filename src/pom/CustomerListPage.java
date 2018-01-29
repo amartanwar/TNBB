@@ -7,22 +7,24 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class CustomerListPage extends BasePage
 {
-	@FindBy(id="ctl00_F_PH_schSearchControl_bshBasicSearch_OneStringctl00_F_PH_schSearchControlrRrrRrrRr0rRr0mAccountNumber")
+	@FindBy(id="ctl00_FC_PH_schSearchControl_bshBasicSearch_OneStringctl00_FC_PH_schSearchControlrRrrRrrRr0rRr0")
 	private WebElement accountNumber;
 
-	@FindBy(id="ctl00_F_PH_schSearchControl_cmdSearch_cmdButtonControl")
+	@FindBy(id="ctl00_FC_PH_schSearchControl_cmdSearch_cmdButtonControl")
 	private WebElement searchButton;
 
-	@FindBy(id="ctl00_Fr_PH_cmdSelect_cmdButtonControl")
+	@FindBy(id="ctl00_FT_PH_cmdSelect_cmdButtonControl")
 	private WebElement selectButton;
 	
-	public CustomerListPage(WebDriver driver)
+	public CustomerListPage(WebDriver driver, ExtentTest test)
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 
