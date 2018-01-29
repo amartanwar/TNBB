@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class InvoiceDateUpdatePage extends BasePage
@@ -32,9 +34,9 @@ public class InvoiceDateUpdatePage extends BasePage
 	@FindBy(xpath=".//*[@id='ctl00_GI_Box_Dis_Ara']/font/a")
 	private WebElement jobId;
 
-	public InvoiceDateUpdatePage(WebDriver driver) 
+	public InvoiceDateUpdatePage(WebDriver driver,ExtentTest test) 
 	{
-		super(driver);
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 
