@@ -9,38 +9,62 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class LeaseClassificationPage extends BasePage
 {
+	@FindBy(id="igtxtctl00_FC_PH_txtTotalEconomicLife")
+	private WebElement totalEconomicLife;
+	
+	@FindBy(id="igtxtctl00_FC_PH_txtTotalRemainingLife")
+	private WebElement totalRemainingLife;
+	
+	//not done
 	@FindBy(id="ctl00_F_PH_chkTransferofOwnership")
 	private WebElement transferofOwnership;
 
+	//not done
 	@FindBy(id="ctl00_F_PH_chkBargainPurchaseOption")
 	private WebElement bargainPurchaseOption;
 
-	@FindBy(id="ctl00_F_PH_cboLeaseTypeID_cboComboBoxControl")
+	@FindBy(id="ctl00_FC_PH_cboLeaseTypeID_cboComboBoxControl")
 	private WebElement leaseAccountingTreatment;
 
-	@FindBy(id="ctl00_F_PH_cboGLTemplateID_cboGLTransaction")
+	@FindBy(id="ctl00_FC_PH_cboGLTemplateID_cboGLTransaction")
 	private WebElement leaseBookingGLTemplate;
 
-	@FindBy(id="ctl00_F_PH_cboLTRToARGLTemplateID_cboGLTransaction")
+	@FindBy(id="ctl00_FC_PH_cboLTRToARGLTemplateID_cboGLTransaction")
 	private WebElement ltrToARGLTemplate;
 
-	@FindBy(id="ctl00_F_PH_cboClientLeaseType_cboComboBoxControl")
-	private WebElement clientLeaseType;
+	@FindBy(id="ctl00_FC_PH_cboClientLeaseType_cboComboBoxControl")
+	private WebElement product;
 
-	@FindBy(id="ctl00_Fr_PH_cmdnintyPercent_cmdButtonControl")
+	@FindBy(id="ctl00_FT_PH_cmdnintyPercent_cmdButtonControl")
 	private WebElement perform90PercentTestButton;
 
-	@FindBy( id="ctl00_Fr_PH_cmdSave_cmdButtonControl")
+	@FindBy( id="ctl00_FT_PH_cmdnintyPercent_cmdButtonControl")
 	private WebElement saveButton;
 	
-	public LeaseClassificationPage(WebDriver driver)
+	public LeaseClassificationPage(WebDriver driver, ExtentTest test)
 	{
-		super(driver);
+		super(driver,test);
 		PageFactory.initElements(driver, this);
+	}
+	
+	public void enterTotalEconomicLife(String economiclife)
+	{
+		WebDriverWait wt= new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.visibilityOf(totalEconomicLife));
+		totalEconomicLife.sendKeys(economiclife);
+	}
+	
+	public void enterTotalRemainingLife(String remainingLife)
+	{
+		WebDriverWait wt= new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.visibilityOf(totalRemainingLife));
+		totalRemainingLife.sendKeys(remainingLife);
 	}
 	
 	public void selectTransferofOwnership()
@@ -55,6 +79,8 @@ public class LeaseClassificationPage extends BasePage
 	
 	public void selectLeaseBookingGLTemplate()
 	{
+		WebDriverWait wt= new WebDriverWait(driver, 30);
+		wt.until(ExpectedConditions.elementToBeClickable(leaseBookingGLTemplate));
 		Select se= new Select(leaseBookingGLTemplate);
 		se.selectByIndex(1);
 	}
@@ -71,9 +97,9 @@ public class LeaseClassificationPage extends BasePage
 		se.selectByIndex(1);
 	}
 	
-	public void selectClientLeaseType()
+	public void selectProduct()
 	{
-		Select se= new Select(clientLeaseType);
+		Select se= new Select(product);
 		se.selectByIndex(1);
 	}
 	

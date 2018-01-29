@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class LeaseMenuPage extends BasePage
@@ -15,18 +17,15 @@ public class LeaseMenuPage extends BasePage
 	@FindBy(id="ctl00ctl04WebMenuControl_2")
 	private WebElement leaseMenu;
 
-	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_2_1']/td/div")
+	@FindBy(xpath="//*[@id=\'ctl00ctl04WebMenuControl_2_1\']/td/div")
 	private WebElement newLease;
 
-	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_2_6']/td/div")
+	@FindBy(xpath="//*[@id=\'ctl00ctl04WebMenuControl_2_5\']/td/div")
 	private WebElement rebook;
 	
-	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_2_7']/td/div")
-	private WebElement restructure;
-	
-	public LeaseMenuPage(WebDriver driver) 
+	public LeaseMenuPage(WebDriver driver, ExtentTest test) 
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -57,15 +56,4 @@ public class LeaseMenuPage extends BasePage
 		action.moveToElement(rebook).click().perform();
 	}
 	
-	public void openLeaseStructurePage()
-	{
-		WebDriverWait wt1= new WebDriverWait(driver, 60);
-	    wt1.until(ExpectedConditions.visibilityOf(leaseMenu));
-	    Actions action= new Actions(driver);
-		action.moveToElement(leaseMenu).perform();
-		
-		WebDriverWait wt2= new WebDriverWait(driver, 60);
-	    wt2.until(ExpectedConditions.elementToBeClickable(restructure));
-		action.moveToElement(restructure).click().perform();
-	}
 }

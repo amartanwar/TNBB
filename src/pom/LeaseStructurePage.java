@@ -8,59 +8,55 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 import generic.SystemDate;
 
 public class LeaseStructurePage extends BasePage
 {
-	@FindBy(id="igtxtctl00_F_PH_txtTotalPaymentNumber")
+	@FindBy(id="igtxtctl00_FC_PH_txtTotalPaymentNumber")
 	private WebElement numberOfPayments;
 
-	@FindBy(id="igtxtctl00_F_PH_txtTotalInceptionNumber")
-	private WebElement numberOfPaymentsDueOnCommencement;
+	@FindBy(id="igtxtctl00_FC_PH_txtTotalInceptionNumber")
+	private WebElement numberOfPaymentsDueOnInception;
 
-	@FindBy(id="ctl00_F_PH_txtInceptionDate_input")
+	@FindBy(id="ctl00_FC_PH_txtInceptionDate_input")
 	private WebElement commencementDate;
 	
-	@FindBy(id="ctl00_F_PH_cboRentalFrequency_cboComboBoxControl")
+	@FindBy(id="ctl00_FC_PH_cboRentalFrequency_cboComboBoxControl")
 	private WebElement leaseFrequency;
 	
-	@FindBy(id="ctl00_F_PH_cboPaymentStructure_cboComboBoxControl")
+	@FindBy(id="ctl00_FC_PH_cboPaymentStructure_cboComboBoxControl")
 	private WebElement paymentStructure;
 
-	@FindBy(id="igtxtctl00_F_PH_txtInceptionRentalExecutoryFeesAmount_txtWebCurrencyEdit")
+	@FindBy(id="igtxtctl00_FC_PH_txtInceptionRentalExecutoryFeesAmount_txtWebCurrencyEdit")
 	private WebElement commencementRentalExecutoryFee;
 
-	@FindBy(id="igtxtctl00_F_PH_txtInceptionNonRentalExecutoryFeesAmount_txtWebCurrencyEdit")
+	@FindBy(id="igtxtctl00_FC_PH_txtInceptionNonRentalExecutoryFeesAmount_txtWebCurrencyEdit")
 	private WebElement commencementNonRentalExecutoryFee; 
 
-	@FindBy(id="igtxtctl00_F_PH_txtInceptionAdminFeeAmount_txtWebCurrencyEdit")
-	private WebElement commencementAdminFee;
-
-	@FindBy(id="igtxtctl00_F_PH_txtInceptionPaymentAmount_txtWebCurrencyEdit")
+	@FindBy(id="igtxtctl00_FC_PH_txtInceptionPaymentAmount_txtWebCurrencyEdit")
 	private WebElement commencementTotalPayment; 
 
-	@FindBy(id="igtxtctl00_F_PH_txtRegularRentalExecutoryFee_txtWebCurrencyEdit")
+	@FindBy(id="igtxtctl00_FC_PH_txtRegularRentalExecutoryFee_txtWebCurrencyEdit")
 	private WebElement regularRentalExecutoryFee;
 
-	@FindBy(id="igtxtctl00_F_PH_txtRegularNonRentalExecutoryFee_txtWebCurrencyEdit")
+	@FindBy(id="igtxtctl00_FC_PH_txtRegularNonRentalExecutoryFee_txtWebCurrencyEdit")
 	private WebElement regularNonRentalExecutoryFee; 
 
-	@FindBy(id="igtxtctl00_F_PH_txtRegularAdminFeeAmount_txtWebCurrencyEdit")
-	private WebElement regularAdminFee;
-
-	@FindBy(id="igtxtctl00_F_PH_txtRegularPaymentAmount_txtWebCurrencyEdit")
+	@FindBy(id="igtxtctl00_FC_PH_txtRegularPaymentAmount_txtWebCurrencyEdit")
 	private WebElement regularTotalPayment; 
 
-	@FindBy(id="ctl00_F_PH_txtPostDate_input")
+	@FindBy(id="ctl00_FC_PH_txtPostDate_input")
 	private WebElement glPostDate;
 
-	@FindBy(id="ctl00_Fr_PH_cmdSave_cmdButtonControl")
+	@FindBy(id="ctl00_FT_PH_cmdSave_cmdButtonControl")
 	private WebElement saveButton;
 
-	public LeaseStructurePage(WebDriver driver) 
+	public LeaseStructurePage(WebDriver driver, ExtentTest test) 
 	{
-		super(driver);
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -73,7 +69,7 @@ public class LeaseStructurePage extends BasePage
 	
 	public void enterNumberOfPaymentsDueOnCommencement(String paymentsDue)
 	{
-		numberOfPaymentsDueOnCommencement.sendKeys(paymentsDue);
+		numberOfPaymentsDueOnInception.sendKeys(paymentsDue);
 	}
 	
 	public void enterCommencementDate(String date)
@@ -98,12 +94,6 @@ public class LeaseStructurePage extends BasePage
 		regularNonRentalExecutoryFee.sendKeys(fee);
 	}
 	
-	public void enterRegularAdminFee(String fee)
-	{
-		regularAdminFee.clear();
-		regularAdminFee.sendKeys(fee);
-	}
-	
 	public void enterRegularTotalPayment(String fee)
 	{
 		regularTotalPayment.clear();
@@ -120,10 +110,6 @@ public class LeaseStructurePage extends BasePage
 		commencementNonRentalExecutoryFee.sendKeys(fee);
 	}
 	
-	public void enterCommencementAdminFee(String fee)
-	{
-		commencementAdminFee.sendKeys(fee);
-	}
 	
 	public void enterCommencementTotalPayment(String fee)
 	{
@@ -145,13 +131,14 @@ public class LeaseStructurePage extends BasePage
 	{
 		Select se= new Select(paymentStructure);
 		se.selectByVisibleText(paymentStructureType);
+		se.selectByIndex(1);
 	}
 	
 	public void selectLeaseFrequency(String leaseFrequencyType)
 	{
 		Select se= new Select(leaseFrequency);
 		se.selectByVisibleText(leaseFrequencyType);
-//		se.selectByIndex(2);
+		se.selectByIndex(1);
 	}
 
 	

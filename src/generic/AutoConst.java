@@ -10,5 +10,4 @@ public interface AutoConst
 	String IE_VALUE="./drivers/IEDriverServer.exe";
 	String SNAP_PATH="D:\\amar\\OdessaAutomationDemo\\LW4.0_MAG_Automation\\ScreenShots\\" ;
 	String InputXlPath="./TestData/Input.xlsx";
-	
 }
