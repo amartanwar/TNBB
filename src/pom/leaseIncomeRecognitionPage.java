@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class leaseIncomeRecognitionPage extends BasePage
@@ -36,9 +38,9 @@ public class leaseIncomeRecognitionPage extends BasePage
 	@FindBy(xpath="//*[@id='ctl00_GI_Box_Dis_Ara']/font/a")
 	private WebElement jobId;
 	
-	public leaseIncomeRecognitionPage(WebDriver driver)
+	public leaseIncomeRecognitionPage(WebDriver driver,ExtentTest test)
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	

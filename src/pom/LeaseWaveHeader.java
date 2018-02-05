@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public  class LeaseWaveHeader extends BasePage
@@ -24,9 +26,9 @@ public  class LeaseWaveHeader extends BasePage
 	private WebElement setup;
 	
 	
-	public LeaseWaveHeader(WebDriver driver)
+	public LeaseWaveHeader(WebDriver driver, ExtentTest test)
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	
