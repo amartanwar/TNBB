@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class ProductProfilePage extends BasePage
@@ -35,9 +37,9 @@ public class ProductProfilePage extends BasePage
 	@FindBy(id="ctl00_Fr_PH_cmdSave_cmdButtonControl")
 	private WebElement saveButton;
 
-	public ProductProfilePage(WebDriver driver) 
+	public ProductProfilePage(WebDriver driver, ExtentTest test) 
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	

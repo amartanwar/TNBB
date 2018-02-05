@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class ReceiptApplicationPage extends BasePage
@@ -33,9 +35,9 @@ public class ReceiptApplicationPage extends BasePage
 	@FindBy(id="ctl00_Fr_PH_cmdPost_cmdButtonControl")
 	private WebElement postButton;
 	
-	public ReceiptApplicationPage(WebDriver driver) 
+	public ReceiptApplicationPage(WebDriver driver, ExtentTest test) 
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	

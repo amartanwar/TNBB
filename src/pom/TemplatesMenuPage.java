@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class TemplatesMenuPage extends BasePage
@@ -21,9 +23,9 @@ public class TemplatesMenuPage extends BasePage
 	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_3_2']/td/div")
 	private WebElement programSetup;
 	
-	public TemplatesMenuPage(WebDriver driver)
+	public TemplatesMenuPage(WebDriver driver, ExtentTest test)
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	

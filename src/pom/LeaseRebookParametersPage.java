@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 import generic.SystemDate;
 
@@ -21,9 +23,9 @@ public class LeaseRebookParametersPage extends BasePage
 	@FindBy(id="ctl00_F_PH_chkReverseCash")
 	private WebElement reverseCash;
 	
-	public LeaseRebookParametersPage(WebDriver driver)
+	public LeaseRebookParametersPage(WebDriver driver, ExtentTest test)
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	

@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 import generic.ScrollOptions;
 
@@ -30,9 +32,9 @@ public class LeaseAccrualPage extends BasePage
 	@FindBy(id="ctl00xFxPHxgrdListxgrdList_rc_0_3")
 	private WebElement yeildWithIDC;
 	
-	public LeaseAccrualPage(WebDriver driver)
+	public LeaseAccrualPage(WebDriver driver, ExtentTest test)
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	

@@ -6,6 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class MovingLongTermtoShorTermUpdatePage extends BasePage
@@ -35,9 +38,9 @@ public class MovingLongTermtoShorTermUpdatePage extends BasePage
 	@FindBy(xpath="//*[@id='ctl00_GI_Box_Dis_Ara']/font/a")
 	private WebElement jobId;
 	
-	public MovingLongTermtoShorTermUpdatePage(WebDriver driver)
+	public MovingLongTermtoShorTermUpdatePage(WebDriver driver, ExtentTest test)
 	{
-		super(driver);
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	
