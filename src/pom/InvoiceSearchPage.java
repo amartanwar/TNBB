@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import generic.BasePage;
 
 public class InvoiceSearchPage extends BasePage
@@ -20,9 +22,9 @@ public class InvoiceSearchPage extends BasePage
 	@FindBy(id="ctl00_Fr_PH_cmdSearchApply_cmdButtonControl")
 	private WebElement saveAndApplyButton;
 	
-	public InvoiceSearchPage(WebDriver driver) 
+	public InvoiceSearchPage(WebDriver driver,ExtentTest test) 
 	{
-		super(driver);
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 
