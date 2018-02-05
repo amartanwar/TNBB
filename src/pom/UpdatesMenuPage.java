@@ -53,9 +53,17 @@ public class UpdatesMenuPage extends BasePage
 	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_5_4_5']/td/div")
 	private WebElement incomeRecognition;
 	
+<<<<<<< HEAD
 	public UpdatesMenuPage(WebDriver driver, ExtentTest test)
+=======
+	public UpdatesMenuPage(WebDriver driver,ExtentTest test)
+>>>>>>> branch 'master' of https://github.com/amartanwar/TNBB.git
 	{
+<<<<<<< HEAD
 		super(driver, test);
+=======
+		super(driver,test);
+>>>>>>> branch 'master' of https://github.com/amartanwar/TNBB.git
 		PageFactory.initElements(driver, this);
 	}
 	

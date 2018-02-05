@@ -2,11 +2,18 @@ package generic;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.ClientAnchor;
+import org.apache.poi.ss.usermodel.Comment;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Drawing;
+import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.RichTextString;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -17,13 +24,18 @@ public class ExcelComparator
 {
 	public XSSFWorkbook workbook1;
 	public XSSFWorkbook workbook2;
-	public static CellStyle style;
+	public  CellStyle style;
+	public  Font font;
+	public FileInputStream expectedResult;
+	public FileInputStream actualResult ;
+	public String actualFile;
+	public String sheet1_value;
 	public  void compareTwoExcel(String expectedResultExcelName,String actualResultExcelName) throws IOException 
 	{
 		 // get input excel files
-        FileInputStream expectedResult = new FileInputStream(new File( "./ExpectedResult/"+expectedResultExcelName+".xlsx"));
-        FileInputStream actualResult = new FileInputStream(new File(  "./ActualResult/"+actualResultExcelName+".xlsx"));
-
+         expectedResult = new FileInputStream(new File( "./ExpectedResult/"+expectedResultExcelName+".xlsx"));
+         actualResult = new FileInputStream(new File(  "./ActualResult/"+actualResultExcelName+".xlsx"));
+         this.actualFile=actualResultExcelName;
         // Create Workbook instance holding reference to .xlsx file
          workbook1 = new XSSFWorkbook(expectedResult);
          workbook2 = new XSSFWorkbook(actualResult);
@@ -31,9 +43,11 @@ public class ExcelComparator
         //color
         
 	    style = workbook2.createCellStyle();
-	    style.setFillForegroundColor(IndexedColors.GREEN.getIndex());
-	    Font font = workbook2.createFont();
+	    style.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
+	    style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+	    font = workbook2.createFont();
         font.setColor(IndexedColors.RED.getIndex());
+        font.setItalic(true);
         style.setFont(font);
 
         // Get first/desired sheet from the workbook
@@ -60,7 +74,7 @@ public class ExcelComparator
     
 	}
 
-	public  boolean compareTwoSheets(XSSFSheet sheet1, XSSFSheet sheet2) 
+	public  boolean compareTwoSheets(XSSFSheet sheet1, XSSFSheet sheet2) throws IOException 
 	{
 		boolean status=true;
 		int numberofRows_Sheet1 = sheet1.getPhysicalNumberOfRows();
@@ -103,12 +117,13 @@ public class ExcelComparator
 
 	}
 
-	private boolean compareTwoRows(XSSFRow sheet1_row, XSSFRow sheet2_row)
+	private boolean compareTwoRows(XSSFRow sheet1_row, XSSFRow sheet2_row) throws IOException
 	{
+		
 		boolean status=true;
-		int numberOfCells_Sheet1 = sheet1_row.getPhysicalNumberOfCells();
-		int numberOfCells_Sheet2 = sheet2_row.getPhysicalNumberOfCells();
-//		
+//		int numberOfCells_Sheet1 = sheet1_row.getPhysicalNumberOfCells();
+//		int numberOfCells_Sheet2 = sheet2_row.getPhysicalNumberOfCells();
+		
 //		if(numberOfCells_Sheet1 != numberOfCells_Sheet2)
 //		{
 //			System.out.println("Number of cells mismatching in both the sheets");
@@ -119,8 +134,7 @@ public class ExcelComparator
 //		}
 		
 		
-		if(numberOfCells_Sheet1 == numberOfCells_Sheet2) 
-		{
+		
 			int  firstcell = sheet1_row.getFirstCellNum();
 			int lastcell = sheet2_row.getLastCellNum();
 			
@@ -130,38 +144,64 @@ public class ExcelComparator
 			{
 				 XSSFCell sheet1_cell = sheet1_row.getCell(i);
 				 XSSFCell sheet2_cell = sheet2_row.getCell(i);
+				 
+				 
+				 
+				 
+					 if(compareTwoCells(sheet1_cell,sheet2_cell,sheet2_row)==false)
+						{
+						 
+						 if(sheet2_cell==null)
+						 {
+							 XSSFCell cell = sheet2_row.createCell(i); 
+							 cell.setCellStyle(style);
+							 cell.setCellStyle(style);
+							 setComment(cell, "Expected value= "+sheet1_value);
+							 System.out.println("cell "+i+" - is not Equal in both the sheets");
+							 status=false;
+						 }
+						
+						 else
+						 {
+							 sheet2_cell.setCellStyle(style);
+							 setComment(sheet2_cell, "Expected value= "+sheet1_value);
+							 System.out.println("cell "+i+" - is not Equal in both the sheets");
+							 status=false;
+						 }
+							
+							
+						}
+						
+						else
+						{
+//							System.out.println("cell "+i+" - is  Equal in both the sheets");
+						}
+						 
+				 
 				
-				if(compareTwoCells(sheet1_cell,sheet2_cell)==false)
-				{
 				
-					sheet2_cell.setCellStyle(style);
-					System.out.println("cell "+i+" - is not Equal in both the sheets");
-					status=false;
-					break;
-					
-				}
 				
-				else
-				{
-//					System.out.println("cell "+i+" - is  Equal in both the sheets");
-				}
 			}
 			
-			
-		}
+			actualResult.close();
+	        FileOutputStream outFile =new FileOutputStream(new File("./ActualResult/"+actualFile+".xlsx"));
+	        workbook2.write(outFile);
+	        outFile.close();
+		
 		return status;
 	}
 
-	private boolean compareTwoCells(XSSFCell sheet1_cell, XSSFCell sheet2_cell)
+	private boolean compareTwoCells(XSSFCell sheet1_cell, XSSFCell sheet2_cell,XSSFRow sheet2_row) throws IOException
 	{
 		boolean status=true;
-		 String sheet1_value=getCellvalue(sheet1_cell);
+		  sheet1_value=getCellvalue(sheet1_cell);
 		 String sheet2_value=getCellvalue(sheet2_cell);
 		 
 		 if (sheet1_value.equals(sheet2_value)==false) 
 		 {
 			 System.out.println("Expected value= "+sheet1_value);
 			 System.out.println("Actual value= "+sheet2_value);
+			 
 			 status= false;
 		 }
 		 
@@ -185,16 +225,37 @@ public class ExcelComparator
 			try
 			{
 				value = String.valueOf((int)sheet1_cell.getNumericCellValue());
+				System.out.println(value);
 			}
 			
 
 			catch(Exception e1)
 			{
-				System.out.println("No record found at given cell");
+//				System.out.println("No record found at given cell");
+				value="Blank";
 			}
 		}
 		
 		return value;
+	}
+	
+	public void setComment (XSSFCell cell,String message)
+	{
+		
+      Drawing drawing = cell.getSheet().createDrawingPatriarch();
+      CreationHelper factory = cell.getSheet().getWorkbook().getCreationHelper();
+      ClientAnchor anchor = factory.createClientAnchor();
+      anchor.setCol1(cell.getColumnIndex());
+      anchor.setCol2(cell.getColumnIndex() + 1);
+      anchor.setRow1(cell.getRowIndex());
+      anchor.setRow2(cell.getRowIndex() + 3);
+
+      Comment comment = drawing.createCellComment(anchor);
+      RichTextString str = factory.createRichTextString(message);
+      comment.setVisible(Boolean.FALSE);
+      comment.setString(str);
+
+      cell.setCellComment(comment);
 	}
 	
 }

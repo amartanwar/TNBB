@@ -22,9 +22,17 @@ public class InvoiceSearchPage extends BasePage
 	@FindBy(id="ctl00_Fr_PH_cmdSearchApply_cmdButtonControl")
 	private WebElement saveAndApplyButton;
 	
+<<<<<<< HEAD
 	public InvoiceSearchPage(WebDriver driver, ExtentTest test) 
+=======
+	public InvoiceSearchPage(WebDriver driver,ExtentTest test) 
+>>>>>>> branch 'master' of https://github.com/amartanwar/TNBB.git
 	{
+<<<<<<< HEAD
 		super(driver, test);
+=======
+		super(driver,test);
+>>>>>>> branch 'master' of https://github.com/amartanwar/TNBB.git
 		PageFactory.initElements(driver, this);
 	}
 

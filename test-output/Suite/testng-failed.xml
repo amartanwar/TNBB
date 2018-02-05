@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+<suite thread-count="-1" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test name="Test(failed)">
     <classes>
-      <class name="scenarios.ArrearsLease__ReceiptPosting_ByInvoiceEndToEndTest">
+      <class name="test.ThreadTest">
         <methods>
-          <include name="testingArrearsLeaseEndToEnd"/>
+          <include name="test3"/>
+          <include name="test4"/>
           <include name="closeApplication"/>
+          <include name="test2"/>
           <include name="openApplication"/>
           <include name="tearDown"/>
           <include name="settingUpReport"/>
         </methods>
-      </class> <!-- scenarios.ArrearsLease__ReceiptPosting_ByInvoiceEndToEndTest -->
+      </class> <!-- test.ThreadTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
