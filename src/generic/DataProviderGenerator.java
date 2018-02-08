@@ -7,7 +7,7 @@ public class DataProviderGenerator
 		Object[][] data=null;
 		int row=excel.getRowCount("./TestData/"+xlName+".xlsx",sheetName);
 		int cell =excel.getCellCount("./TestData/"+xlName+".xlsx", sheetName);
-
+		
 		
 		data= new Object[row-1][cell];
 		

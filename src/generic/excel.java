@@ -23,7 +23,7 @@ public class excel
 		}
 		catch (Exception e)
 		{
-			System.out.println("Xl file not found at given path");
+			System.out.println("Excel sheet file not found at given path");
 		}
 		try
 		{

@@ -22,11 +22,11 @@ public class LeaseClassificationPage extends BasePage
 	private WebElement totalRemainingLife;
 	
 	//not done
-	@FindBy(id="ctl00_F_PH_chkTransferofOwnership")
+	@FindBy(id="ctl00_FC_PH_chkTransferofOwnership")
 	private WebElement transferofOwnership;
 
 	//not done
-	@FindBy(id="ctl00_F_PH_chkBargainPurchaseOption")
+	@FindBy(id="ctl00_FC_PH_chkBargainPurchaseOption")
 	private WebElement bargainPurchaseOption;
 
 	@FindBy(id="ctl00_FC_PH_cboLeaseTypeID_cboComboBoxControl")
@@ -44,8 +44,11 @@ public class LeaseClassificationPage extends BasePage
 	@FindBy(id="ctl00_FT_PH_cmdnintyPercent_cmdButtonControl")
 	private WebElement perform90PercentTestButton;
 
-	@FindBy( id="ctl00_FT_PH_cmdnintyPercent_cmdButtonControl")
+	@FindBy( id="ctl00_FT_PH_cmdSave_cmdButtonControl")
 	private WebElement saveButton;
+	
+	@FindBy(id="ctl00_FC_PH_cboOverTermPaymentARGLTemplateID_cboGLTransaction")
+	public WebElement OtpARGLTemplate;
 	
 	public LeaseClassificationPage(WebDriver driver, ExtentTest test)
 	{
@@ -57,6 +60,7 @@ public class LeaseClassificationPage extends BasePage
 	{
 		WebDriverWait wt= new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(totalEconomicLife));
+		totalEconomicLife.clear();
 		totalEconomicLife.sendKeys(economiclife);
 	}
 	
@@ -82,6 +86,13 @@ public class LeaseClassificationPage extends BasePage
 		WebDriverWait wt= new WebDriverWait(driver, 30);
 		wt.until(ExpectedConditions.elementToBeClickable(leaseBookingGLTemplate));
 		Select se= new Select(leaseBookingGLTemplate);
+		se.selectByIndex(1);
+	}
+	
+	public void selectOTPARGLTemplate()
+	{
+
+		Select se= new Select(OtpARGLTemplate);
 		se.selectByIndex(1);
 	}
 	

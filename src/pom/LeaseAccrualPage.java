@@ -17,10 +17,10 @@ import generic.ScrollOptions;
 
 public class LeaseAccrualPage extends BasePage
 {
-	@FindBy(id="ctl00_F_PH_ComputeYield_cmdButtonControl")
+	@FindBy(id="ctl00_FC_PH_ComputeYield_cmdButtonControl")
 	private WebElement computeYieldButton;
 
-	@FindBy(id="ctl00_Fr_PH_cmdSave_cmdButtonControl")
+	@FindBy(id="ctl00_FT_PH_cmdSave_cmdButtonControl")
 	private WebElement saveButton;
 	
 	@FindBy(id="ctl00xFxPHxgrdListxgrdList_rc_0_1")

@@ -1,13 +1,13 @@
-package test;
+package testScripts;
 
 import java.awt.AWTException;
 import java.io.IOException;
 
-import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-import generic.BaseTest;
 import pom.AssetListPage;
 import pom.CustomerListPage;
 import pom.LeaseAccrualPage;
@@ -28,14 +28,15 @@ import pom.LeaseServicingPage;
 import pom.LeaseStructurePage;
 import pom.LeaseTaxFlowsPage;
 
-public class LeaseCreation extends BaseTest
+public class LeaseCreateScript_Advance
 {
-	@Test
-	public void createLease () throws InterruptedException, AWTException, IOException 
+	public void operatingLease_A2_BI1_IDC1_Ad(WebDriver driver, ExtentTest test, String lease_accountNumber,String lease_sequenceNumber, 
+			String leaseAlias, String leaseInvoiceGroup, String leaseInventoryAlias1,String leaseInventoryAlias2,String leaseNumberOfPayments,String paymentsDueOnInception,
+			String leaseCommencementDate, String leaseRental,String totalPaymentOnCommencement,String leaseEconomicLife, String leaseBlendedName, String leaseBlendedAmount) throws AWTException, InterruptedException, IOException 
+					
 	{
 		
 		
-		test=reports.createTest("createLease","Creating lease for test data");
 		LeaseMenuPage lm= new LeaseMenuPage(driver, test);
 		lm.clickOnLeaseMenu();
 		lm.clickOnNewLease();
@@ -43,26 +44,26 @@ public class LeaseCreation extends BaseTest
 		
 		
 		CustomerListPage cl= new CustomerListPage(driver, test);
-		cl.enterAccountNumber("1");
+		cl.enterAccountNumber(lease_accountNumber);
 		cl.clickOnsearchButton();
 		cl.clickOnSelectButton();
 		
 		
 		
 		LeaseCreatePage lc= new LeaseCreatePage(driver, test);
-		lc.enterLeaseSequenceNumber("Lease-5");
+		lc.enterLeaseSequenceNumber(lease_sequenceNumber);
 		lc.clcikOnSaveButton();
 		
 		
 		
 		LeaseProfilePage lp= new LeaseProfilePage(driver, test);
-		lp.setAlias("Lease-5");
+		lp.setAlias(leaseAlias);
 		lp.selectOriginationChannel();
 		lp.selectTransactiontype();
 		lp.selectOTPLease();
 		lp.selectOtpAccountingTreatmentID();
 		lp.selectotpIncomeGLTemplate();
-		lp.enterInvoiceGroup("jj invoice group");
+		lp.enterInvoiceGroup(leaseInvoiceGroup);
 		lp.selectreceiptCashGLTemplate();
 		lp.selectRemarketingResponsibility();
 		lp.selectGLCompany();
@@ -75,7 +76,7 @@ public class LeaseCreation extends BaseTest
 		LeaseInventoryInLeasePage li= new LeaseInventoryInLeasePage(driver, test);
 		String beforeWindow = li.clickOnImportButton();
 		AssetListPage al= new AssetListPage(driver, test);
-		al.searchByAlias("Asset-6");
+		al.searchByAlias(leaseInventoryAlias1);
 		al.clickOnSearchButton();
 		al.clickOnCurrentAll();
 		al.clickOnSelectExportButton(beforeWindow);
@@ -83,12 +84,12 @@ public class LeaseCreation extends BaseTest
 		li.clickSaveAndContinue();
 		
 		String beforeWindow1 = li.clickOnImportButton();
-		al.searchByAlias("Asset-7");
+		al.searchByAlias(leaseInventoryAlias2);
 		al.clickOnSearchButton();
 		al.clickOnCurrentAll();
 		al.clickOnSelectExportButton(beforeWindow1);
 	
-		String inventoryID = li.getAssetID();
+		//String inventoryID = li.getAssetID();
 		li.clickOnPageSaveButton();
 		
 		
@@ -110,10 +111,12 @@ public class LeaseCreation extends BaseTest
 		
 		
 		LeaseStructurePage ls= new LeaseStructurePage(driver, test);
-		ls.enterNumberofPayments("12");
-		ls.enterCommencementDate("3/1/2018");
+		ls.enterNumberofPayments(leaseNumberOfPayments);
+		ls.enterNumberOfPaymentsDueOnCommencement(paymentsDueOnInception);
+		ls.enterCommencementDate(leaseCommencementDate);
 		Thread.sleep(500);
-		ls.enterRegularTotalPayment("200");
+		ls.enterRegularTotalPayment(leaseRental);
+		ls.enterCommencementTotalPayment(totalPaymentOnCommencement);
 		ls.clickOnSaveButton();
 		
 		
@@ -124,7 +127,7 @@ public class LeaseCreation extends BaseTest
 		
 		
 		LeaseClassificationPage lcp= new LeaseClassificationPage(driver, test);
-		lcp.enterTotalEconomicLife("2");
+		lcp.enterTotalEconomicLife(leaseEconomicLife);
 		lcp.clickOnPerform90PercentTestButton();
 		lcp.selectLeaseBookingGLTemplate();
 		lcp.selectLtrToARGLTemplate();
@@ -135,12 +138,12 @@ public class LeaseCreation extends BaseTest
 		
 		
 		LeaseBlendedIncome lbi = new LeaseBlendedIncome(driver, test);
-		lbi.addBlendedIncome("B-1", "500");
+		lbi.addBlendedIncome(leaseBlendedName, leaseBlendedAmount);
 		lbi.saveBlendedItem();
-		lbi.addBlendedIncomeWithAsset("B-2", "400", inventoryID);
-		lbi.saveBlendedItem();
-		lbi.addBlendedIncomeChargeBack("B-3", "300", "3/1/2018");
-		lbi.saveBlendedItem();
+	//	lbi.addBlendedIncomeWithAsset("B-2", "400", inventoryID);
+	//	lbi.saveBlendedItem();
+	//	lbi.addBlendedIncomeChargeBack("B-3", "300", "3/1/2018");
+	//	lbi.saveBlendedItem();
 		lbi.clickOnCloseButton();
 		
 		
@@ -183,5 +186,6 @@ public class LeaseCreation extends BaseTest
 		
 		le.verfyTittle("Lease List", "Title is matching");
 		test.log(Status.PASS, "Lease commenced successfully");
+		
 	}
 }

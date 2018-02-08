@@ -67,13 +67,16 @@ public class LeaseStructurePage extends BasePage
 		numberOfPayments.sendKeys(payments);
 	}
 	
-	public void enterNumberOfPaymentsDueOnCommencement(String paymentsDue)
+	public void enterNumberOfPaymentsDueOnCommencement(String paymentsDueOnInception)
 	{
-		numberOfPaymentsDueOnInception.sendKeys(paymentsDue);
+		numberOfPaymentsDueOnInception.clear();
+		numberOfPaymentsDueOnInception.sendKeys(paymentsDueOnInception);
 	}
 	
 	public void enterCommencementDate(String date)
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.visibilityOf(numberOfPayments));
 		commencementDate.sendKeys(date);
 	}
 	
@@ -111,9 +114,9 @@ public class LeaseStructurePage extends BasePage
 	}
 	
 	
-	public void enterCommencementTotalPayment(String fee)
+	public void enterCommencementTotalPayment(String totalPaymentOnCommencement)
 	{
-		commencementTotalPayment.sendKeys(fee);
+		commencementTotalPayment.sendKeys(totalPaymentOnCommencement);
 	}
 	
 	public void enterGLPostDate()

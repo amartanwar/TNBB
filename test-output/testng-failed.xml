@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="-1" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test name="Test(failed)">
+<suite thread-count="-1" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)">
     <classes>
-      <class name="test.ThreadTest">
+      <class name="scenarios.LeaseTest">
         <methods>
-          <include name="test3"/>
-          <include name="test4"/>
           <include name="closeApplication"/>
-          <include name="test2"/>
+          <include name="OperatingLease_A2_BI1_IDC1_Test" invocation-numbers="0"/>
           <include name="openApplication"/>
           <include name="tearDown"/>
           <include name="settingUpReport"/>
         </methods>
-      </class> <!-- test.ThreadTest -->
+      </class> <!-- scenarios.LeaseTest -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

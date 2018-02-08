@@ -50,7 +50,7 @@ public class LeaseIDCSetupPage extends BasePage
 	
 	public void enterIDCAMount(String amount) throws InterruptedException
 	{
-		WebDriverWait wt =new WebDriverWait(driver, 300);
+		WebDriverWait wt =new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(idcAmount));
 		idcAmount.click();
 		idcAmount.sendKeys(amount);
@@ -58,6 +58,8 @@ public class LeaseIDCSetupPage extends BasePage
 	
 	public void clickOnSaveButton()
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(saveButton));
 		saveButton.click();
 	}
 	
