@@ -14,7 +14,8 @@ public class excel
 	{
 		Workbook wb = null;
 		Sheet s=null;
-		String value = null;
+		String value = null;				
+
 		try
 		{
 			File f = new File(path);
@@ -55,10 +56,12 @@ public class excel
 			catch(Exception e1)
 			{
 				System.out.println("No record found at given cell");
+				System.out.println(cellNum);
+				value = "";
 			}
 		}
 		
-		
+		//System.out.println(value);
 	
 		return value;
 	}
@@ -100,6 +103,7 @@ public class excel
 		catch(Exception e)
 		{
 			System.out.println("No record found at given cell");
+			value = "";
 		}
 		
 		
@@ -138,7 +142,7 @@ public class excel
 		return value1;
 	}
 	
-	public static int getCellCount (String path,String sheetName) 
+	public static int getCellCount (String path,String sheetName,int rownumber) 
 	{
 		Workbook wb = null;
 		Sheet s=null;
@@ -162,12 +166,70 @@ public class excel
 		}
 		
 		
-		Row row = s.getRow(0);
+		Row row = s.getRow(rownumber);
 		int cellCount = row.getPhysicalNumberOfCells();
 		
 			
 		return cellCount;
 	}
+	
+	public static int getNumberOfSheets (String path) 
+	{
+		Workbook wb = null;
+		int s = 0;
+		try
+		{
+			File f = new File(path);
+			 wb=WorkbookFactory.create(f);
+			
+		}
+		catch (Exception e)
+		{
+			System.out.println("Xl file not found at given path");
+		}
+		try
+		{
+			 s= wb.getNumberOfSheets();
+		}
+		catch(Exception e)
+		{
+			System.out.println("No sheet found or Excel is open");
+		}
+			
+		return s;
+	}
+	
+	
+	
+	public static String getSheetName (String path,int i) 
+	{
+		Workbook wb = null;
+		String s=null;
+		try
+		{
+			File f = new File(path);
+			 wb=WorkbookFactory.create(f);
+			
+		}
+		catch (Exception e)
+		{
+			System.out.println("Xl file not found at given path");
+		}
+		try
+		{
+			 s= wb.getSheetName(i);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Given sheet not found or sheet name is incorrect");
+		}
+		
+			
+		return s;
+	}
+	
+	
+	
 }
 	
 

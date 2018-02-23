@@ -25,7 +25,7 @@ public class LeaseMilageParameterPage extends BasePage
 	public void clickOnSaveButton()
 	{
 		WebDriverWait wt =new WebDriverWait(driver, 60);
-		wt.until(ExpectedConditions.elementToBeClickable(saveButton));
+		wt.until(ExpectedConditions.titleIs("Vehicle Mileage Parameters"));
 		saveButton.click();
 	}
 

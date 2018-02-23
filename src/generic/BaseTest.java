@@ -42,11 +42,11 @@ public abstract class BaseTest implements AutoConst
 		
 		reports.setSystemInfo("Opereating System", "Windows7");
 		reports.setSystemInfo("Environment", "QA");
-		reports.setSystemInfo("Host Name", "Amar");
-		reports.setSystemInfo("User", "Amar Singh Tanwar");
+		reports.setSystemInfo("Host Name", "Nirush");
+		reports.setSystemInfo("User", "Nirush S");
 		
 		htmlReporter.config().setDocumentTitle("LeaseWaveAutomationReport");
-		htmlReporter.config().setReportName("ARI-M46_Release Regression Test Report");
+		htmlReporter.config().setReportName("BBNT FASB");
 		htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
 		htmlReporter.config().setTheme(Theme.DARK);
 	}
@@ -94,6 +94,7 @@ public abstract class BaseTest implements AutoConst
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+" failed becuase of below issue", ExtentColor.RED));
 			test.fail(result.getThrowable());
 			test.fail("SnapShot Below:").addScreenCaptureFromPath(screenshotpath);
+			driver.quit();
 			
 			try
 			{

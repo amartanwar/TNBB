@@ -56,18 +56,21 @@ public class LeaseBlendedIncome extends BasePage
 	public void clickOnCloseButton()
 	{
 		WebDriverWait wt =new WebDriverWait(driver, 60);
-		wt.until(ExpectedConditions.visibilityOf(closeButton));
+		wt.until(ExpectedConditions.elementToBeClickable(addButton));
 		closeButton.click();
 	}
 	
-	public void addBlendedIncome(String name,String amount)
+	public void addBlendedIncome(String name,String amount, String index)
 	{
-		
+		WebDriverWait wt1 =new WebDriverWait(driver, 60);
+		wt1.until(ExpectedConditions.elementToBeClickable(addButton));
 		addButton.click();
 		WebDriverWait wt =new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(blendedCode));
 		Select se = new Select(blendedCode);
-		se.selectByIndex(1);
+		String in = index;
+		int index1 = Integer.parseInt(in);		
+		se.selectByIndex(index1);
 		wt.until(ExpectedConditions.visibilityOf(blendedName));
 		blendedName.sendKeys(name);
 		wt.until(ExpectedConditions.visibilityOf(blendedAmount));
@@ -77,14 +80,17 @@ public class LeaseBlendedIncome extends BasePage
 	}
 	
 	
-	public void addBlendedIncomeWithAsset(String name,String amount, String InventoryID)
+	public void addBlendedIncomeWithAsset(String name,String amount, String InventoryID, String index)
 	{
-	
+		WebDriverWait wt1 =new WebDriverWait(driver, 60);
+		wt1.until(ExpectedConditions.elementToBeClickable(addButton));
 		addButton.click();
 		WebDriverWait wt =new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(blendedCode));
 		Select se = new Select(blendedCode);
-		se.selectByIndex(12);
+		String in = index;
+		int index1 = Integer.parseInt(in);	
+		se.selectByIndex(index1);
 		wt.until(ExpectedConditions.visibilityOf(blendedName));
 		blendedAmount.clear();
 		blendedName.sendKeys(name);
@@ -95,14 +101,15 @@ public class LeaseBlendedIncome extends BasePage
 	}	
 		
 		
-	public void addBlendedIncomeChargeBack(String name,String amount,String date)
+	public void addBlendedIncomeChargeBack(String name,String amount,String date, String index)
 	{
-		
+		WebDriverWait wt1 =new WebDriverWait(driver, 60);
+		wt1.until(ExpectedConditions.elementToBeClickable(addButton));
 		addButton.click();
 		WebDriverWait wt =new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(blendedCode));
 		Select se = new Select(blendedCode);
-		se.selectByIndex(13);
+		se.selectByVisibleText(index);
 		blendedName.sendKeys(name);
 		wt.until(ExpectedConditions.visibilityOf(blendedAmount));
 		blendedAmount.clear();
@@ -115,14 +122,16 @@ public class LeaseBlendedIncome extends BasePage
 		
 	}
 	
-	public void addBlendedIncomeChargeBackWithAsset(String name,String amount,String InventoryID,String date)
+	public void addBlendedIncomeChargeBackWithAsset(String name,String amount,String InventoryID,String date, String index)
 	{
-		
+		WebDriverWait wt1 =new WebDriverWait(driver, 60);
+		wt1.until(ExpectedConditions.elementToBeClickable(addButton));
 		addButton.click();
 		WebDriverWait wt =new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(blendedCode));
 		Select se = new Select(blendedCode);
-		se.selectByIndex(7);
+		System.out.println(index);
+		se.selectByVisibleText(index);
 		wt.until(ExpectedConditions.visibilityOf(blendedName));
 		blendedName.sendKeys(name);
 		wt.until(ExpectedConditions.visibilityOf(blendedAmount));

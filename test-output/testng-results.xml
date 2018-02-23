@@ -1,183 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-02-08T14:30:35Z" name="Default suite" finished-at="2018-02-08T14:33:15Z" duration-ms="160779">
+  <suite started-at="2018-02-23T12:57:36Z" name="Suite" finished-at="2018-02-23T12:58:03Z" duration-ms="26947">
     <groups>
     </groups>
-    <test started-at="2018-02-08T14:30:35Z" name="Default test" finished-at="2018-02-08T14:33:15Z" duration-ms="160779">
-      <class name="scenarios.LeaseTest">
-        <test-method is-config="true" signature="settingUpReport()[pri:0, instance:scenarios.LeaseTest@7205765b]" started-at="2018-02-08T20:00:34Z" name="settingUpReport" finished-at="2018-02-08T20:00:35Z" duration-ms="125" status="PASS">
+    <test started-at="2018-02-23T12:57:36Z" name="Test" finished-at="2018-02-23T12:58:03Z" duration-ms="26947">
+      <class name="scenarios.LeaseDataSetup_Test">
+        <test-method is-config="true" signature="settingUpReport()[pri:0, instance:scenarios.LeaseDataSetup_Test@7205765b]" started-at="2018-02-23T18:27:36Z" name="settingUpReport" finished-at="2018-02-23T18:27:36Z" duration-ms="112" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- settingUpReport -->
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:scenarios.LeaseTest@7205765b]" started-at="2018-02-08T20:00:35Z" name="openApplication" finished-at="2018-02-08T20:00:42Z" duration-ms="6288" status="PASS">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:scenarios.LeaseDataSetup_Test@7205765b]" started-at="2018-02-23T18:27:38Z" name="openApplication" finished-at="2018-02-23T18:28:03Z" duration-ms="24681" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[Error retrieving windowBuild info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'System info: host: 'LW-NIRUSH', ip: '192.168.1.169', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'Driver info: org.openqa.selenium.ie.InternetExplorerDriverCapabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:22131/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}Session ID: cf277e81-6ad8-407b-be8e-0666d33f55aa]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: Error retrieving windowBuild info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'System info: host: 'LW-NIRUSH', ip: '192.168.1.169', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'Driver info: org.openqa.selenium.ie.InternetExplorerDriverCapabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:22131/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}Session ID: cf277e81-6ad8-407b-be8e-0666d33f55aaat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:657)at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteWindow.maximize(RemoteWebDriver.java:891)at generic.BaseTest.openApplication(BaseTest.java:64)at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)at java.base/java.lang.reflect.Method.invoke(Unknown Source)at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:451)at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)at org.testng.TestRunner.privateRun(TestRunner.java:648)at org.testng.TestRunner.run(TestRunner.java:505)at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)at org.testng.SuiteRunner.run(SuiteRunner.java:364)at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)at org.testng.TestNG.runSuites(TestNG.java:1028)at org.testng.TestNG.run(TestNG.java:996)at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method signature="OperatingLease_A2_BI1_IDC1_Test(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:scenarios.LeaseTest@7205765b]" started-at="2018-02-08T20:00:42Z" name="OperatingLease_A2_BI1_IDC1_Test" data-provider="OperatingLease_A2_BI1_IDC1_Ar" finished-at="2018-02-08T20:01:55Z" duration-ms="73419" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[bulkLease-8]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[bulkLease-8]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[jj invoice group]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[203475]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[203476]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[3/1/2018]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[5]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[BI-1]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[400]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="LeaseDataSetup(java.util.Map)[pri:0, instance:scenarios.LeaseDataSetup_Test@7205765b]" started-at="2018-02-23T18:28:03Z" name="LeaseDataSetup" data-provider="DataProvider_LeaseSetup" finished-at="2018-02-23T18:28:03Z" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[Error retrieving windowBuild info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'System info: host: 'LW-NIRUSH', ip: '192.168.1.169', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'Driver info: org.openqa.selenium.ie.InternetExplorerDriverCapabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:22131/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}Session ID: cf277e81-6ad8-407b-be8e-0666d33f55aa]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: Error retrieving windowBuild info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'System info: host: 'LW-NIRUSH', ip: '192.168.1.169', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'Driver info: org.openqa.selenium.ie.InternetExplorerDriverCapabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:22131/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}Session ID: cf277e81-6ad8-407b-be8e-0666d33f55aaat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:657)at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteWindow.maximize(RemoteWebDriver.java:891)at generic.BaseTest.openApplication(BaseTest.java:64)at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)at java.base/java.lang.reflect.Method.invoke(Unknown Source)at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:451)at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)at org.testng.TestRunner.privateRun(TestRunner.java:648)at org.testng.TestRunner.run(TestRunner.java:505)at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)at org.testng.SuiteRunner.run(SuiteRunner.java:364)at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)at org.testng.TestNG.runSuites(TestNG.java:1028)at org.testng.TestNG.run(TestNG.java:996)at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- OperatingLease_A2_BI1_IDC1_Test -->
-        <test-method is-config="true" signature="closeApplication(org.testng.ITestResult)[pri:0, instance:scenarios.LeaseTest@7205765b]" started-at="2018-02-08T20:01:55Z" name="closeApplication" finished-at="2018-02-08T20:01:56Z" duration-ms="536" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=OperatingLease_A2_BI1_IDC1_Test status=SUCCESS method=LeaseTest.OperatingLease_A2_BI1_IDC1_Test(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:scenarios.LeaseTest@7205765b] output={null}]]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- LeaseDataSetup -->
+        <test-method is-config="true" signature="closeApplication(org.testng.ITestResult)[pri:0, instance:scenarios.LeaseDataSetup_Test@7205765b]" started-at="2018-02-23T18:28:03Z" name="closeApplication" finished-at="2018-02-23T18:28:03Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeApplication -->
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:scenarios.LeaseTest@7205765b]" started-at="2018-02-08T20:01:56Z" name="openApplication" finished-at="2018-02-08T20:02:02Z" duration-ms="6297" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openApplication -->
-        <test-method signature="OperatingLease_A2_BI1_IDC1_Test(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:scenarios.LeaseTest@7205765b]" started-at="2018-02-08T20:02:02Z" name="OperatingLease_A2_BI1_IDC1_Test" data-provider="OperatingLease_A2_BI1_IDC1_Ar" finished-at="2018-02-08T20:03:15Z" duration-ms="72886" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[bulkLease-9]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[bulkLease-9]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[jj invoice group]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[203477]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[203478]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[3/1/2018]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[1000]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[5]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[BI-1]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[400]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- OperatingLease_A2_BI1_IDC1_Test -->
-        <test-method is-config="true" signature="closeApplication(org.testng.ITestResult)[pri:0, instance:scenarios.LeaseTest@7205765b]" started-at="2018-02-08T20:03:15Z" name="closeApplication" finished-at="2018-02-08T20:03:15Z" duration-ms="663" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=OperatingLease_A2_BI1_IDC1_Test status=SUCCESS method=LeaseTest.OperatingLease_A2_BI1_IDC1_Test(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:scenarios.LeaseTest@7205765b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeApplication -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:scenarios.LeaseTest@7205765b]" started-at="2018-02-08T20:03:15Z" name="tearDown" finished-at="2018-02-08T20:03:16Z" duration-ms="171" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:scenarios.LeaseDataSetup_Test@7205765b]" started-at="2018-02-23T18:28:03Z" name="tearDown" finished-at="2018-02-23T18:28:03Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- scenarios.LeaseTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- scenarios.LeaseDataSetup_Test -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

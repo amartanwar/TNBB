@@ -24,7 +24,7 @@ public class LeasePaymentSchedulePage extends BasePage
 	
 	public void clickOnCloseButton()
 	{
-		WebDriverWait wt= new WebDriverWait(driver, 300);
+		WebDriverWait wt= new WebDriverWait(driver, 20);
 		wt.until(ExpectedConditions.titleContains("Payment Schedule"));
 		closeButton.click();
 	}

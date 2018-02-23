@@ -12,7 +12,7 @@ public class TestExcel
 		{
 			Object[][] data=null;
 			int row=excel.getRowCount("./TestData/"+xlName+".xlsx",sheetName);
-			int cell =excel.getCellCount("./TestData/"+xlName+".xlsx", sheetName);
+			int cell =excel.getCellCount("./TestData/"+xlName+".xlsx", sheetName,5);
 
 			
 			data= new Object[row-1][cell];

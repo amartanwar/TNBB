@@ -1,248 +1,36 @@
 package generic;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DataProviderGenerator
 {
+
+	
 	public static  Object[][] objectGenerator(String xlName,String sheetName)
 	{
-		Object[][] data=null;
+		
+		Object[][] data = null;
 		int row=excel.getRowCount("./TestData/"+xlName+".xlsx",sheetName);
-		int cell =excel.getCellCount("./TestData/"+xlName+".xlsx", sheetName);
+		int cell =excel.getCellCount("./TestData/"+xlName+".xlsx", sheetName,1);
 		
 		
-		data= new Object[row-1][cell];
+		 data= new Object[row-2][1];
 		
-		for(int i=1;i<row;i++)
+		for(int i=2;i<row;i++)
 		{
+			Map<String, String> datamap1  = new HashMap<>();
+			
 			for(int j=0;j<cell;j++)
 			{
-				data[i-1][j]=excel.getCellValue("./TestData/"+xlName+".xlsx", sheetName, i, j);
+	
+					datamap1.put(excel.getCellValue("./TestData/"+xlName+".xlsx", sheetName, 1, j).toString(),excel.getCellValue("./TestData/"+xlName+".xlsx", sheetName,i, j).toString());	
 			}
+			data [i-2][0]= datamap1 ;
 		}
 		
 		return data;
 	}
-	
-	
-	public static Object[][] objectMerger(Object[][] data1, Object[][] data2)
-	{
-		int length=0;		
-		Object[][] data5 = new Object[1][data2[0].length+data1[0].length];
-		
-			for(int j=0;j<data1[0].length;j++)
-			{
-				data5[0][length]=data1[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data2[0].length;j++)
-			{
-				data5[0][length]=data2[0][j];
-				length++;
-			}
-		return data5;
-		
-	}
-	
-	public static Object[][] objectMerger(Object[][] data1, Object[][] data2, Object[][] data3)
-	{
-		int length=0;		
-		Object[][] mergedData = new Object[1][data2[0].length+data1[0].length+data3[0].length];
-		
-			for(int j=0;j<data1[0].length;j++)
-			{
-				mergedData[0][length]=data1[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data2[0].length;j++)
-			{
-				mergedData[0][length]=data2[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data3[0].length;j++)
-			{
-				mergedData[0][length]=data3[0][j];
-				length++;
-			}
-		return mergedData;
-		
-	}
-	
-	public static Object[][] objectMerger(Object[][] data1, Object[][] data2, Object[][] data3, Object[][] data4)
-	{
-		int length=0;		
-		Object[][] mergedData = new Object[1][data2[0].length+data1[0].length+data3[0].length+data4[0].length];
-		
-			for(int j=0;j<data1[0].length;j++)
-			{
-				mergedData[0][length]=data1[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data2[0].length;j++)
-			{
-				mergedData[0][length]=data2[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data3[0].length;j++)
-			{
-				mergedData[0][length]=data3[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data4[0].length;j++)
-			{
-				mergedData[0][length]=data4[0][j];
-				length++;
-			}
-		return mergedData;
-		
-	}
-	
-	public static Object[][] objectMerger(Object[][] data1, Object[][] data2, Object[][] data3, Object[][] data4, Object[][] data5)
-	{
-		int length=0;		
-		Object[][] mergedData = new Object[1][data2[0].length+data1[0].length+data3[0].length+data4[0].length+ data5[0].length];
-		
-			for(int j=0;j<data1[0].length;j++)
-			{
-				mergedData[0][length]=data1[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data2[0].length;j++)
-			{
-				mergedData[0][length]=data2[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data3[0].length;j++)
-			{
-				mergedData[0][length]=data3[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data4[0].length;j++)
-			{
-				mergedData[0][length]=data4[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data5[0].length;j++)
-			{
-				mergedData[0][length]=data5[0][j];
-				length++;
-			}
-		return mergedData;
-		
-	}
-	
-	public static Object[][] objectMerger(Object[][] data1, Object[][] data2, Object[][] data3, Object[][] data4, Object[][] data5,Object[][] data6,Object[][] data7,Object[][] data8,Object[][] data9)
-	{
-		int length=0;		
-		Object[][] mergedData = new Object[1][data2[0].length+data1[0].length+data3[0].length+data4[0].length+ data5[0].length+data6[0].length+data7[0].length+data8[0].length+data9[0].length];
-		
-			for(int j=0;j<data1[0].length;j++)
-			{
-				mergedData[0][length]=data1[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data2[0].length;j++)
-			{
-				mergedData[0][length]=data2[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data3[0].length;j++)
-			{
-				mergedData[0][length]=data3[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data4[0].length;j++)
-			{
-				mergedData[0][length]=data4[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data5[0].length;j++)
-			{
-				mergedData[0][length]=data5[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data6[0].length;j++)
-			{
-				mergedData[0][length]=data6[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data7[0].length;j++)
-			{
-				mergedData[0][length]=data7[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data8[0].length;j++)
-			{
-				mergedData[0][length]=data8[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data9[0].length;j++)
-			{
-				mergedData[0][length]=data9[0][j];
-				length++;
-			}
-		return mergedData;
-		
-	}
-	
-	public static Object[][] objectMerger(Object[][] data1, Object[][] data2, Object[][] data3, Object[][] data4, Object[][] data5,Object[][] data6)
-	{
-		int length=0;		
-		Object[][] mergedData = new Object[1][data2[0].length+data1[0].length+data3[0].length+data4[0].length+ data5[0].length+data6[0].length];
-		
-			for(int j=0;j<data1[0].length;j++)
-			{
-				mergedData[0][length]=data1[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data2[0].length;j++)
-			{
-				mergedData[0][length]=data2[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data3[0].length;j++)
-			{
-				mergedData[0][length]=data3[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data4[0].length;j++)
-			{
-				mergedData[0][length]=data4[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data5[0].length;j++)
-			{
-				mergedData[0][length]=data5[0][j];
-				length++;
-			}
-			
-			for(int j=0;j<data6[0].length;j++)
-			{
-				mergedData[0][length]=data6[0][j];
-				length++;
-			}
-		return mergedData;
-		
-	}
+
 }
 

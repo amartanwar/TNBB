@@ -20,14 +20,21 @@ public class LeaseIDCSetupPage extends BasePage
 	@FindBy(id="ctl00_FC_PH_cmdAdd_cmdButtonControl")
 	private WebElement addButton;
 	
-	@FindBy(xpath="//*[@id=\'ctl00xFCxPHxgrdLeaseIDCxgrdList_rc_0_3\']")
-	private WebElement idcAmount;
+	//@FindBy(xpath="//*[@id=\'ctl00xFCxPHxgrdLeaseIDCxgrdList_rc_0_3\']")
+	@FindBy(id = "ctl00xFCxPHxgrdLeaseIDCxgrdList_rc_0_3")
+	private WebElement Amount;
+	
+	@FindBy(id = "igtxtctl00_FC_PH_grdLeaseIDC_grdLeaseIDCLWGridEditor_Controls2")
+	private WebElement enterAmount;
 	
 	@FindBy(id="ctl00_FT_PH_cmdRecalculate_cmdButtonControl")
 	private WebElement recalculateIDC;
 
 	@FindBy(id="ctl00_FT_PH_cmdSave_cmdButtonControl")
 	private WebElement saveButton;
+	
+	@FindBy(className= "igtbl_checkBox")
+	private WebElement checkBox;
 
 	public LeaseIDCSetupPage(WebDriver driver, ExtentTest test)
 	{
@@ -35,12 +42,14 @@ public class LeaseIDCSetupPage extends BasePage
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void selectIDCTemplate()
+	public void selectIDCTemplate(String index)
 	{
 		WebDriverWait wt= new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(idcTemplate));
 		Select se = new Select(idcTemplate);
-		se.selectByIndex(1);
+		///String in = index;
+		//int index1 = Integer.parseInt(in);
+		se.selectByVisibleText(index);
 	}
 	
 	public void clickOnAddButton()
@@ -48,16 +57,25 @@ public class LeaseIDCSetupPage extends BasePage
 		addButton.click();
 	}
 	
-	public void enterIDCAMount(String amount) throws InterruptedException
+	public void clickIDCAmount() throws InterruptedException
 	{
 		WebDriverWait wt =new WebDriverWait(driver, 60);
-		wt.until(ExpectedConditions.visibilityOf(idcAmount));
-		idcAmount.click();
-		idcAmount.sendKeys(amount);
+		wt.until(ExpectedConditions.visibilityOf(Amount));
+		Amount.click();
 	}
 	
+	
+	public void enterIDCAmount(String amount) throws InterruptedException
+	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(enterAmount));
+		enterAmount.clear();
+		enterAmount.sendKeys(amount);
+	}
 	public void clickOnSaveButton()
 	{
+		String title = driver.getTitle();
+		System.out.println(title);
 		WebDriverWait wt =new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.elementToBeClickable(saveButton));
 		saveButton.click();
@@ -66,6 +84,11 @@ public class LeaseIDCSetupPage extends BasePage
 	public void clickOnRecalculateIDCButton()
 	{
 		recalculateIDC.click();
+	}
+	
+	public void selectCheckBox()
+	{
+		checkBox.click();
 	}
 
 }

@@ -53,6 +53,12 @@ public class LeaseStructurePage extends BasePage
 
 	@FindBy(id="ctl00_FT_PH_cmdSave_cmdButtonControl")
 	private WebElement saveButton;
+	
+	@FindBy(id="igtxtctl00_FC_PH_txtDueDay")
+	private WebElement dueDay;
+	
+	@FindBy(id="ctl00_FC_PH_txtMaturityDate_input")
+	private WebElement maturityDate;
 
 	public LeaseStructurePage(WebDriver driver, ExtentTest test) 
 	{
@@ -60,15 +66,18 @@ public class LeaseStructurePage extends BasePage
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void enterNumberofPayments(String payments)
+	public void enterNumberofPayments(String payments) throws InterruptedException
 	{
 		WebDriverWait wt =new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(numberOfPayments));
 		numberOfPayments.sendKeys(payments);
+		Thread.sleep(500);
 	}
 	
 	public void enterNumberOfPaymentsDueOnCommencement(String paymentsDueOnInception)
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(numberOfPaymentsDueOnInception));
 		numberOfPaymentsDueOnInception.clear();
 		numberOfPaymentsDueOnInception.sendKeys(paymentsDueOnInception);
 	}
@@ -76,58 +85,75 @@ public class LeaseStructurePage extends BasePage
 	public void enterCommencementDate(String date)
 	{
 		WebDriverWait wt =new WebDriverWait(driver, 60);
-		wt.until(ExpectedConditions.visibilityOf(numberOfPayments));
+		wt.until(ExpectedConditions.elementToBeClickable(commencementDate));
 		commencementDate.sendKeys(date);
 	}
 	
-	public void enterCommencementDate()
+	public void enterCommencementDate() throws InterruptedException
 	{
+		Thread.sleep(500);
 		WebDriverWait wt =new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(commencementDate));
 		commencementDate.sendKeys(SystemDate.currentDate());
 	}
 	
 	public void enterRegularRentalExecutoryFee(String fee)
+	
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(regularRentalExecutoryFee));
 		regularRentalExecutoryFee.sendKeys(fee);
 	}
 	
 	public void enterRegularNonRentalExecutoryFee(String fee)
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(regularNonRentalExecutoryFee));
 		regularNonRentalExecutoryFee.sendKeys(fee);
 	}
 	
 	public void enterRegularTotalPayment(String fee)
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(regularTotalPayment));
 		regularTotalPayment.clear();
 		regularTotalPayment.sendKeys(fee);
 	}
 	
 	public void enterCommencementRentalExecutoryFee(String fee)
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(commencementRentalExecutoryFee));
 		commencementRentalExecutoryFee.sendKeys(fee);
 	}
 	
 	public void enterCommencementNonRentalExecutoryFee(String fee)
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(commencementNonRentalExecutoryFee));
 		commencementNonRentalExecutoryFee.sendKeys(fee);
 	}
 	
 	
 	public void enterCommencementTotalPayment(String totalPaymentOnCommencement)
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(commencementTotalPayment));
 		commencementTotalPayment.sendKeys(totalPaymentOnCommencement);
 	}
 	
 	public void enterGLPostDate()
 	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(glPostDate));
 		glPostDate.sendKeys(SystemDate.currentDate());
 	}
 	
-	public void clickOnSaveButton() throws InterruptedException
+	public void clickOnSaveButton() 
 	{
-		Thread.sleep(1000);
-		saveButton.click();
+		WebDriverWait wt = new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.titleContains("Lease Structure"));
+ 		saveButton.click();
 	}
 	
 	public void selectPaymentStructure(String paymentStructureType)
@@ -144,7 +170,20 @@ public class LeaseStructurePage extends BasePage
 		se.selectByIndex(1);
 	}
 
+	public void enterDueDate(String dueDate)
+	{
+		WebDriverWait wt =new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.elementToBeClickable(dueDay));
+		dueDay.clear();
+		dueDay.sendKeys(dueDate);
+	}
 	
+	public void clickOnMaturityDate()
+	{
+		WebDriverWait wt = new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.visibilityOf(maturityDate));
+		maturityDate.click();
+	}
 }
 
 

@@ -45,12 +45,14 @@ public class LeaseInventoryInLeasePage extends BasePage
 		String currentWindow = driver.getWindowHandle();
 		importButton.click();
 		SwitchControlToNextWindow sc= new SwitchControlToNextWindow();
-		sc.waitForWndows(driver, currentWindow);
+		sc.waitForWndows(driver, currentWindow); //Control is being changed to new window
 		return currentWindow;
 	}
 	
 	public void clickOnPageSaveButton() throws InterruptedException
 	{
+		WebDriverWait wt= new WebDriverWait(driver, 300);
+		wt.until(ExpectedConditions.titleIs("Assets In Lease"));
 		PageSaveButton.click();
 	}
 	public void selectAsset()

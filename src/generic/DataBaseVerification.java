@@ -8,7 +8,14 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Iterator;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -19,7 +26,7 @@ public class DataBaseVerification
 	{
 		try
 		{
-			Connection conn = DriverManager.getConnection("jdbc:sqlserver://otbsqlserver;database=MAG_TotalViewQA;user=development;password=jk");
+			Connection conn = DriverManager.getConnection("jdbc:sqlserver://otbperftest;database=BBnT_FASB_Test;user=development;password=jk");
 	         if (conn != null)
 	         {
                 System.out.println("Connected");
@@ -44,7 +51,7 @@ public class DataBaseVerification
 	         {
 	        	 int j=i-1;
 	             rowhead.createCell((short) j).setCellValue(data.getColumnName(i));
-	        	 
+	          
 	         }
 	        
 	         int index=1;
@@ -61,6 +68,27 @@ public class DataBaseVerification
                 
 		         index++;
 	         }
+	         
+	         
+	         CellStyle style = workbook1.createCellStyle();
+	         style.setFillForegroundColor(IndexedColors.ROYAL_BLUE.getIndex());
+	 	    style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+	 	    XSSFFont font = workbook1.createFont();
+	         font.setColor(IndexedColors.WHITE.getIndex());
+	         font.setBold(true);
+	         style.setFont(font);
+	         
+
+	         
+	         Row row = sheet.getRow(0);
+	         Iterator<Cell> cellIterator = row.cellIterator();
+	          while (cellIterator.hasNext()) 
+	          {
+	                Cell cell = cellIterator.next();
+	                cell.setCellStyle(style);
+	                int columnIndex = cell.getColumnIndex();
+	                sheet.autoSizeColumn(columnIndex);
+	          }
 	         
 	         String path = "./ActualResult/"+xlName+".xlsx";
 		        FileOutputStream fileOut;
