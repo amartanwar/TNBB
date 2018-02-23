@@ -30,6 +30,7 @@ public class ExcelComparator
 	public FileInputStream actualResult ;
 	public String actualFile;
 	public String sheet1_value;
+
 	public  void compareTwoExcel(String expectedResultExcelName,String actualResultExcelName) throws IOException 
 	{
 		 // get input excel files
@@ -58,10 +59,12 @@ public class ExcelComparator
         if(compareTwoSheets(sheet1, sheet2)==true) 
         {
             System.out.println("\n\nThe two excel sheets are Equal");
+          
         } 
         else 
         {
             System.out.println("\n\nThe two excel sheets are Not Equal");
+            
             Assert.fail();
         }
         
@@ -242,7 +245,7 @@ public class ExcelComparator
 	public void setComment (XSSFCell cell,String message)
 	{
 		
-      Drawing drawing = cell.getSheet().createDrawingPatriarch();
+      Drawing<?> drawing = cell.getSheet().createDrawingPatriarch();
       CreationHelper factory = cell.getSheet().getWorkbook().getCreationHelper();
       ClientAnchor anchor = factory.createClientAnchor();
       anchor.setCol1(cell.getColumnIndex());

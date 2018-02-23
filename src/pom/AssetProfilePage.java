@@ -17,7 +17,7 @@ import generic.SystemDate;
 public class AssetProfilePage extends BasePage
 {
 	@FindBy(id="ctl00_FC_PH_txtUnitNumber")
-	private WebElement unitNumber;
+	private WebElement alias;
 	
 	@FindBy(id="ctl00_FC_PH_txtAcquisitionDate_input")
 	private WebElement acquiredDate;
@@ -55,23 +55,23 @@ public class AssetProfilePage extends BasePage
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void setUnitNumber(String un)
+	public void enterAlias(String un)
 	{
-		unitNumber.clear();
-		unitNumber.sendKeys(un);
+		alias.clear();
+		alias.sendKeys(un);
 	}
 	
-	public void setAcquiredDate()
+	public void enterAcquiredDate()
 	{
 		acquiredDate.sendKeys(SystemDate.currentDate());
 	}
 	
-	public void setAcquiredDate(String date)
+	public void enterAcquiredDate(String date)
 	{
 		acquiredDate.sendKeys(date);
 	}
 	
-	public void setAssetType(String assetType)
+	public void selectAssetType(String assetType)
 	{
 		Select se =new Select(type);
 		se.selectByIndex(1);
@@ -79,7 +79,7 @@ public class AssetProfilePage extends BasePage
 		
 	}
 	
-	public void setAssetcategory(String ascategory)
+	public void selectAssetcategory(String ascategory)
 	{
 		Select se= new Select(assetcategory);
 //		se.selectByVisibleText(ascategory);
@@ -87,34 +87,34 @@ public class AssetProfilePage extends BasePage
 		test.log(Status.PASS,"setting asset category");
 	}
 	
-	public void setpropertyTaxResposibility(String propeTaxResposibility)
+	public void selectpropertyTaxResposibility(String propeTaxResposibility)
 	{
 		Select se= new Select(propertyTaxResposibility);
 //		se.selectByVisibleText(propeTaxResposibility);
 		se.selectByIndex(1);
 	}
 	
-	public void setAccountNumber(String acNumber)
+	public void enterAccountNumber(String acNumber)
 	{
 		accountNumber.sendKeys(acNumber);
 	}
 	
-	public void setFactorCategory(String fcCategory)
+	public void selectFactorCategory(String fcCategory)
 	{
 		factorCategory.sendKeys(fcCategory);
 	}
 	
-	public void setLocationCode(String locCode)
+	public void enterLocationCode(String locCode)
 	{
 		locationCode.sendKeys(locCode);
 	}
 	
-	public void setEffectiveDate()
+	public void enterEffectiveDate()
 	{
 		effectiveDate.sendKeys(SystemDate.currentDate());
 	}
 	
-	public void setIndustryType()
+	public void selectIndustryType()
 	{
 		Select se =new Select(industryType);
 //		se.selectByVisibleText(indusType);

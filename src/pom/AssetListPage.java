@@ -34,11 +34,17 @@ public  class AssetListPage extends BasePage
 	@FindBy(id="ctl00_FC_PH_grdList_lnkAllCP")
 	private WebElement currentpage;
 	
-	@FindBy(id="ctl00_Fr_PH_cmdSelect_cmdButtonControl")
+	@FindBy(id="ctl00_FT_PH_cmdSelect_cmdButtonControl")
 	private WebElement selectButton;
 	
 	@FindBy(id="ctl00_FT_PH_cmdSelectClient_cmdExportButton")
 	private WebElement selectExportButton;
+	
+	//newly added to aid Asset value change list page
+	@FindBy(xpath="//input[@class='igtbl_checkBox']")
+	private WebElement gridCheckBox;
+	
+	
 	
 	public AssetListPage(WebDriver driver,ExtentTest test) 
 	{
@@ -104,6 +110,11 @@ public  class AssetListPage extends BasePage
 		
 	}
 	
-	
+	public void selectGridCheckBox()
+	{
+		WebDriverWait wt= new WebDriverWait(driver,60);
+		wt.until(ExpectedConditions.visibilityOf(gridCheckBox));
+		gridCheckBox.click();
+	}
 	
 }

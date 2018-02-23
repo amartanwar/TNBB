@@ -24,10 +24,12 @@ public class AssetMenuPage extends BasePage
 	@FindBy(xpath="//*[@id=\'ctl00ctl04WebMenuControl_4_8\']/td/div")
 	private WebElement valueAndStatusChange;
 	
-	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_3_11_1']/td/div")
+	//modified the Xpath
+	@FindBy(xpath=".//*[@id=\'ctl00ctl04WebMenuControl_4_8_1\']/td/div")
 	private WebElement Zero;
 	
-	@FindBy(xpath=".//*[@id='ctl00ctl04WebMenuControl_3_11_2']/td/div")
+	//modified the Xpath
+	@FindBy(xpath=".//*[@id=\'ctl00ctl04WebMenuControl_4_8_2\']/td/div")
 	private WebElement nonZero;
 	
 	
@@ -70,6 +72,28 @@ public class AssetMenuPage extends BasePage
 //		ac.moveToElement(assetProfile).perform();
 //		ac.click().perform();
 //	}
+	
+	//newly added
+	public void clickOnZero()
+	{
+		WebDriverWait wt2= new WebDriverWait(driver, 60);
+	    wt2.until(ExpectedConditions.visibilityOf(Zero));
+	    Actions action=new Actions(driver);
+		action.moveToElement(Zero).perform();
+		Zero.click();
+	}
+	
+	public void clickOnNonZero()
+	{
+		WebDriverWait wt2= new WebDriverWait(driver, 100);
+	    wt2.until(ExpectedConditions.visibilityOf(nonZero));
+	    Actions action=new Actions(driver);
+		action.moveToElement(nonZero).perform();
+		nonZero.click();
+	}
+	
+	
+	
 	public void openAssetCostAssignmentPage() throws InterruptedException
 	{
 		    WebDriverWait wt= new WebDriverWait(driver, 60);

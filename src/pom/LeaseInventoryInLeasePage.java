@@ -25,6 +25,12 @@ public class LeaseInventoryInLeasePage extends BasePage
 	
 	@FindBy(id="ctl00_FT_PH_cmdSave_cmdButtonControl")
 	private WebElement PageSaveButton;
+	
+	@FindBy(css = "#ctl00xFCxPHxgrdProfilexgrdList_rc_0_1 > nobr")
+	private WebElement assetID;
+	
+	@FindBy(id="ctl00_FT_PH_cmdSaveContinue_cmdButtonControl")
+	private WebElement saveAndContinue;
 
 	public LeaseInventoryInLeasePage(WebDriver driver, ExtentTest test) 
 	{
@@ -39,12 +45,14 @@ public class LeaseInventoryInLeasePage extends BasePage
 		String currentWindow = driver.getWindowHandle();
 		importButton.click();
 		SwitchControlToNextWindow sc= new SwitchControlToNextWindow();
-		sc.waitForWndows(driver, currentWindow);
+		sc.waitForWndows(driver, currentWindow); //Control is being changed to new window
 		return currentWindow;
 	}
 	
 	public void clickOnPageSaveButton() throws InterruptedException
 	{
+		WebDriverWait wt= new WebDriverWait(driver, 300);
+		wt.until(ExpectedConditions.titleIs("Assets In Lease"));
 		PageSaveButton.click();
 	}
 	public void selectAsset()
@@ -59,6 +67,22 @@ public class LeaseInventoryInLeasePage extends BasePage
 		WebDriverWait wt= new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(primaryAsset));
 		primaryAsset.click();
+	}
+	
+	public String getAssetID()
+	{
+		WebDriverWait wt= new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.visibilityOf(assetID));
+		String InventoryID = assetID.getText();
+		return InventoryID;
+			
+	}
+	
+	public void clickSaveAndContinue()
+	{
+		WebDriverWait wt= new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.visibilityOf(saveAndContinue));
+		saveAndContinue.click();
 	}
 
 }

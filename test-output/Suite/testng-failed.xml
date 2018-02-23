@@ -3,17 +3,15 @@
 <suite thread-count="-1" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test name="Test(failed)">
     <classes>
-      <class name="test.ThreadTest">
+      <class name="scenarios.LeaseDataSetup_Test">
         <methods>
-          <include name="test3"/>
-          <include name="test4"/>
           <include name="closeApplication"/>
-          <include name="test2"/>
           <include name="openApplication"/>
           <include name="tearDown"/>
           <include name="settingUpReport"/>
+          <include name="LeaseDataSetup"/>
         </methods>
-      </class> <!-- test.ThreadTest -->
+      </class> <!-- scenarios.LeaseDataSetup_Test -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

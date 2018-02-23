@@ -169,6 +169,8 @@ public class LeaseProfilePage extends BasePage
 	
 	public void clickOnSaveButton()
 	{
+		WebDriverWait wt = new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.titleIs("Lease Profile"));
 		saveButton.click();
 	}
 

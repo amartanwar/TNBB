@@ -23,21 +23,21 @@ public class AssetCreation extends BaseTest
 		al.clickOnaddButton();
 		
 		AssetProfilePage pa= new AssetProfilePage(driver, test);
-		pa.setUnitNumber("tst37");
+		pa.enterAlias("alias-1");
 		
-		pa.setAcquiredDate("1/19/2018");
+		pa.enterAcquiredDate("1/1/2018");
 
-		pa.setAssetcategory("ed");
-		pa.setAssetType("sd");
+		pa.selectAssetcategory("ed");
+		pa.selectAssetType("sd");
 		
-		pa.setAccountNumber("1000");
+		pa.enterAccountNumber("1");
 		
-		pa.setpropertyTaxResposibility("sfsd");
-		pa.setFactorCategory("hard");
+		pa.selectpropertyTaxResposibility("sfsd");
+		pa.selectFactorCategory("hard");
 		
-		pa.setLocationCode("LC-01");
+		pa.enterLocationCode("1");
 		
-		pa.setIndustryType();
+		pa.selectIndustryType();
 		
 		pa.clickOnSave();
 		

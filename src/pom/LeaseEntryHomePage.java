@@ -33,6 +33,7 @@ public class LeaseEntryHomePage extends BasePage
 	@FindBy(id="ctl00_NB_PH_UCLeaseEntyLink_cmdLeaseClassification")
 	private WebElement leaseClassification;
 	
+	//modified
 	@FindBy(id="ctl00_NB_PH_UCLeaseEntyLink_cmdAccural")
 	private WebElement leaseAccrual;
 
@@ -94,7 +95,7 @@ public class LeaseEntryHomePage extends BasePage
 	
 	public void handlePopup1()
 	{
-		for (int i=1;i<=2;i++)
+		for (int i=1;i<=1;i++)
 		{
 			try
 			{

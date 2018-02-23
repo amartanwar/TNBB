@@ -22,11 +22,11 @@ public class LeaseClassificationPage extends BasePage
 	private WebElement totalRemainingLife;
 	
 	//not done
-	@FindBy(id="ctl00_F_PH_chkTransferofOwnership")
+	@FindBy(id="ctl00_FC_PH_chkTransferofOwnership")
 	private WebElement transferofOwnership;
 
 	//not done
-	@FindBy(id="ctl00_F_PH_chkBargainPurchaseOption")
+	@FindBy(id="ctl00_FC_PH_chkBargainPurchaseOption")
 	private WebElement bargainPurchaseOption;
 
 	@FindBy(id="ctl00_FC_PH_cboLeaseTypeID_cboComboBoxControl")
@@ -44,8 +44,17 @@ public class LeaseClassificationPage extends BasePage
 	@FindBy(id="ctl00_FT_PH_cmdnintyPercent_cmdButtonControl")
 	private WebElement perform90PercentTestButton;
 
-	@FindBy( id="ctl00_FT_PH_cmdnintyPercent_cmdButtonControl")
+	@FindBy( id="ctl00_FT_PH_cmdSave_cmdButtonControl")
 	private WebElement saveButton;
+	
+	@FindBy(id="ctl00_FC_PH_cboOverTermPaymentARGLTemplateID_cboGLTransaction")
+	public WebElement OtpARGLTemplate;
+	
+	@FindBy(id="ctl00_FC_PH_chkIsTaxLease")
+	private WebElement taxLeaseCheckBox;
+	
+	@FindBy(id="ctl00_FC_PH_chkIsTRACLease")
+	private WebElement tracLeaseCheckBox;
 	
 	public LeaseClassificationPage(WebDriver driver, ExtentTest test)
 	{
@@ -57,6 +66,7 @@ public class LeaseClassificationPage extends BasePage
 	{
 		WebDriverWait wt= new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(totalEconomicLife));
+		totalEconomicLife.clear();
 		totalEconomicLife.sendKeys(economiclife);
 	}
 	
@@ -64,6 +74,7 @@ public class LeaseClassificationPage extends BasePage
 	{
 		WebDriverWait wt= new WebDriverWait(driver, 60);
 		wt.until(ExpectedConditions.visibilityOf(totalRemainingLife));
+		totalRemainingLife.clear();
 		totalRemainingLife.sendKeys(remainingLife);
 	}
 	
@@ -77,30 +88,38 @@ public class LeaseClassificationPage extends BasePage
 		bargainPurchaseOption.click();
 	}
 	
-	public void selectLeaseBookingGLTemplate()
+	public void selectLeaseBookingGLTemplate(String index)
 	{
 		WebDriverWait wt= new WebDriverWait(driver, 30);
 		wt.until(ExpectedConditions.elementToBeClickable(leaseBookingGLTemplate));
 		Select se= new Select(leaseBookingGLTemplate);
-		se.selectByIndex(1);
+		se.selectByVisibleText(index);
 	}
 	
-	public void selectLtrToARGLTemplate()
+	public void selectOTPARGLTemplate(String index)
+	{
+
+		Select se= new Select(OtpARGLTemplate);
+		se.selectByVisibleText(index);
+	}
+	
+	public void selectLtrToARGLTemplate(String index)
 	{
 		Select se= new Select(ltrToARGLTemplate);
-		se.selectByIndex(1);
+		System.out.println(index);
+		se.selectByVisibleText(index);
 	}
 	
-	public void selectLeaseAccountingTreatment()
+	public void selectLeaseAccountingTreatment(String index) throws InterruptedException
 	{
 		Select se= new Select(leaseAccountingTreatment);
-		se.selectByIndex(1);
+		se.selectByVisibleText(index); 
 	}
 	
-	public void selectProduct()
+	public void selectProduct(String index)
 	{
 		Select se= new Select(product);
-		se.selectByIndex(1);
+		se.selectByVisibleText(index);
 	}
 	
 	public void clickOnPerform90PercentTestButton()
@@ -110,6 +129,8 @@ public class LeaseClassificationPage extends BasePage
 	
 	public void clickOnSaveButton()
 	{
+		WebDriverWait wt = new WebDriverWait(driver, 60);
+		wt.until(ExpectedConditions.titleContains("Lease Classification Test"));
 		saveButton.click();
 	}
 	
@@ -132,4 +153,13 @@ public class LeaseClassificationPage extends BasePage
 		
 	}
 	
+	public void deselectTaxLease()
+	{
+		taxLeaseCheckBox.click();
+	}
+	
+	public void deselectTracLease()
+	{
+		tracLeaseCheckBox.click();
+	}
 }
