@@ -8,17 +8,22 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Iterator;
 
-import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.Assert;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 public class DataBaseVerification
 {
@@ -26,34 +31,61 @@ public class DataBaseVerification
 	{
 		try
 		{
+			//Setting up the data base connection
 			Connection conn = DriverManager.getConnection("jdbc:sqlserver://otbperftest;database=BBnT_FASB_Test;user=development;password=jk");
 	         if (conn != null)
 	         {
                 System.out.println("Connected");
-            }
+	         }
 	         Statement st = conn.createStatement();
 	         ResultSet rs = st.executeQuery(sqlQuery);
 
 	         
 	        ResultSetMetaData data = rs.getMetaData();
 	       
-	       int columnsize = data.getColumnCount();
+	        int columnsize = data.getColumnCount();
 	      
 
 	         @SuppressWarnings("resource")
 	         XSSFWorkbook workbook1 = new XSSFWorkbook();
 	         XSSFSheet sheet = workbook1.createSheet(sheetName);
 	         XSSFRow rowhead = sheet.createRow((short) 0);
-
-	       
+	         
+	         //Setting Header style
+	         CellStyle style1 = workbook1.createCellStyle();
+	         style1.setFillForegroundColor(IndexedColors.ROYAL_BLUE.getIndex());
+	 	     style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+	 	     style1.setBorderBottom(BorderStyle.THIN);
+	 	     style1.setBorderLeft(BorderStyle.THIN);
+	 	     style1.setBorderRight(BorderStyle.THIN);
+	 	     style1.setBorderTop(BorderStyle.THIN);
+	 	     XSSFFont font = workbook1.createFont();
+	         font.setColor(IndexedColors.WHITE.getIndex());
+	         font.setBold(true);
+	         style1.setFont(font);
+	         
+	         //Setting Cell Style
+	         CellStyle style2 = workbook1.createCellStyle();
+	         style2.setBorderBottom(BorderStyle.THIN);
+	 	     style2.setBorderLeft(BorderStyle.THIN);
+	 	     style2.setBorderRight(BorderStyle.THIN);
+	 	     style2.setBorderTop(BorderStyle.THIN);
              
+	 	     //Creating excel header
 	         for(int i=1;i<=columnsize;i++)
 	         {
 	        	 int j=i-1;
-	             rowhead.createCell((short) j).setCellValue(data.getColumnName(i));
+	             XSSFCell cell = rowhead.createCell((short) j);
+	             cell.setCellValue(data.getColumnName(i));
+	             cell.setCellStyle(style1);
+	             int columnIndex = cell.getColumnIndex();
+	             sheet.autoSizeColumn(columnIndex);
 	          
 	         }
 	        
+	         
+	         
+	         //Fetching data from DB to excel
 	         int index=1;
 	         while (rs.next())
 	         {
@@ -62,34 +94,19 @@ public class DataBaseVerification
 	        	 for(int i=1;i<=columnsize;i++)
 		         {
 		        	 int j=i-1;
-		        	 row.createCell((short) j).setCellValue(rs.getString(i));
+		        	 XSSFCell cell = row.createCell((short) j);
+		        	 cell.setCellValue(rs.getString(i));
+		        	 cell.setCellStyle(style2);
+		             int columnIndex = cell.getColumnIndex();
+		             sheet.autoSizeColumn(columnIndex);
 		        	 
 		         }
                 
 		         index++;
 	         }
 	         
-	         
-	         CellStyle style = workbook1.createCellStyle();
-	         style.setFillForegroundColor(IndexedColors.ROYAL_BLUE.getIndex());
-	 	    style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-	 	    XSSFFont font = workbook1.createFont();
-	         font.setColor(IndexedColors.WHITE.getIndex());
-	         font.setBold(true);
-	         style.setFont(font);
-	         
-
-	         
-	         Row row = sheet.getRow(0);
-	         Iterator<Cell> cellIterator = row.cellIterator();
-	          while (cellIterator.hasNext()) 
-	          {
-	                Cell cell = cellIterator.next();
-	                cell.setCellStyle(style);
-	                int columnIndex = cell.getColumnIndex();
-	                sheet.autoSizeColumn(columnIndex);
-	          }
-	         
+ 
+	         //Saving the excel
 	         String path = "./ActualResult/"+xlName+".xlsx";
 		        FileOutputStream fileOut;
 		  
@@ -105,6 +122,7 @@ public class DataBaseVerification
 				{
 		        	 System.out.println("Failed to create the file");
 				}
+		        conn.close();
 		        
 			}
 			
@@ -113,5 +131,85 @@ public class DataBaseVerification
 				 System.out.println("Failed to create the file");
 			}
 		}
+	public String fetchinDataFromDB (String sqlQuery)
+	{
+		String columnsValue=null;
+		 ResultSet rs = null;
+		try
+		{
+			Connection conn = DriverManager.getConnection("jdbc:sqlserver://otbperftest;database=BBnT_FASB_Test;user=development;password=jk");
+	         if (conn != null)
+	         {
+                System.out.println("Connected");
+	         }
+	         Statement st = conn.createStatement();
+	          rs = st.executeQuery(sqlQuery);
+	         
+	         while(rs.next())
+	         {
+	        	 for(int i=1;i<=1;i++)
+	        	 {
+	        		 columnsValue=rs.getString(i);
+	        	 }
+		        
+	         }
 
+	        	
+	       conn.close();
+
+		}
+			
+			catch(Exception e)
+			{
+				 System.out.println("failed to get the data");
+			}
+			
+		return columnsValue;
+	}
+	public void validateDataFromDataBase(String sqlQuery, String expectedValue, String pass,ExtentTest test)
+	{
+		String columnsValue=null;
+		 ResultSet rs = null;
+		try
+		{
+			Connection conn = DriverManager.getConnection("jdbc:sqlserver://otbperftest;database=BBnT_FASB_Test;user=development;password=jk");
+	         if (conn != null)
+	         {
+               System.out.println("Connected");
+	         }
+	         Statement st = conn.createStatement();
+	          rs = st.executeQuery(sqlQuery);
+	         
+	         while(rs.next())
+	         {
+	        	 for(int i=1;i<=1;i++)
+	        	 {
+	        		 columnsValue=rs.getString(i);
+	        	 }
+		        
+	         }
+	         
+	         if (columnsValue.equals(expectedValue))
+	         {
+	        	test.log(Status.PASS,MarkupHelper.createLabel( "Data Base Verification passed"+"  ActualValue: "+columnsValue+"  ExpectedValue: "+expectedValue, ExtentColor.GREEN));
+	         }
+	         else
+	         {
+	        	test.log(Status.FAIL,MarkupHelper.createLabel( "Data Base Verification failed"+"  ActualValue: "+columnsValue+"  ExpectedValue: "+expectedValue, ExtentColor.RED));
+	        	
+	        	if (pass.equalsIgnoreCase("fail"))
+	        	{
+	        		Assert.fail("Data base Verification Failed");
+	        	}
+	        	
+	         }
+	       conn.close();
+
+		}
+			
+			catch(Exception e)
+			{
+				 System.out.println("failed to get the data");
+			}
+	}
 }

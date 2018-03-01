@@ -1,6 +1,7 @@
 package generic;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ import org.testng.annotations.BeforeSuite;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
@@ -36,7 +38,7 @@ public abstract class BaseTest implements AutoConst
 	@BeforeSuite
 	public void settingUpReport()
 	{
-		htmlReporter= new ExtentHtmlReporter("./Reports/RegressionTestReport_"+SystemDate.currentDate()+".html");
+		htmlReporter= new ExtentHtmlReporter("./Reports/RegressionTestReport_1"+".html");
 		reports= new ExtentReports();
 		reports.attachReporter(htmlReporter);
 		
@@ -93,7 +95,8 @@ public abstract class BaseTest implements AutoConst
 			String screenshotpath = ScreenShot.takeScreenshot(driver, SNAP_PATH+name);
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+" failed becuase of below issue", ExtentColor.RED));
 			test.fail(result.getThrowable());
-			test.fail("SnapShot Below:").addScreenCaptureFromPath(screenshotpath);
+//			test.fail("SnapShot Below:").addScreenCaptureFromPath(screenshotpath);
+			test.fail("SnapShot Below:", MediaEntityBuilder.createScreenCaptureFromPath(Paths.get("").toAbsolutePath().toString() + screenshotpath).build());
 			driver.quit();
 			
 			try

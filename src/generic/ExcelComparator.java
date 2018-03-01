@@ -20,6 +20,11 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Assert;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+
 public class ExcelComparator
 {
 	public XSSFWorkbook workbook1;
@@ -30,8 +35,9 @@ public class ExcelComparator
 	public FileInputStream actualResult ;
 	public String actualFile;
 	public String sheet1_value;
+	public String sheet2_value;
 
-	public  void compareTwoExcel(String expectedResultExcelName,String actualResultExcelName) throws IOException 
+	public  void compareTwoExcel(String expectedResultExcelName,String actualResultExcelName, String pass,ExtentTest test) throws IOException 
 	{
 		 // get input excel files
          expectedResult = new FileInputStream(new File( "./ExpectedResult/"+expectedResultExcelName+".xlsx"));
@@ -58,14 +64,20 @@ public class ExcelComparator
         // Compare sheets
         if(compareTwoSheets(sheet1, sheet2)==true) 
         {
+        	test.log(Status.PASS, MarkupHelper.createLabel( "Data Base Verification PASSED Actual and Expected excel sheet are same", ExtentColor.GREEN));
             System.out.println("\n\nThe two excel sheets are Equal");
           
         } 
         else 
         {
+        	test.log(Status.FAIL,  MarkupHelper.createLabel( "Data Base Verification FAILED. "+" Please find the result excel in the path: "+"./ActualResult/"+actualResultExcelName, ExtentColor.RED));
             System.out.println("\n\nThe two excel sheets are Not Equal");
-            
-            Assert.fail();
+           
+            if(pass.equalsIgnoreCase("Fail"))
+            {
+            	 Assert.fail();
+            }
+           
         }
         
         //close files
@@ -99,7 +111,7 @@ public class ExcelComparator
 				{
 					System.out.println("       Row "+i+" - is not Equal in both the sheets");
 					status=false;
-					break;
+					
 				}
 				
 				else
@@ -198,7 +210,7 @@ public class ExcelComparator
 	{
 		boolean status=true;
 		  sheet1_value=getCellvalue(sheet1_cell);
-		 String sheet2_value=getCellvalue(sheet2_cell);
+		  sheet2_value=getCellvalue(sheet2_cell);
 		 
 		 if (sheet1_value.equals(sheet2_value)==false) 
 		 {
@@ -235,7 +247,7 @@ public class ExcelComparator
 			catch(Exception e1)
 			{
 //				System.out.println("No record found at given cell");
-				value="Blank";
+				value="";
 			}
 		}
 		
