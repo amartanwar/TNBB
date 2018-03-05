@@ -6,10 +6,11 @@
       <class name="scenarios.LeaseDataSetup_Test">
         <methods>
           <include name="closeApplication"/>
-          <include name="operatingLeaseDataSetup" invocation-numbers="0"/>
           <include name="openApplication"/>
+          <include name="BackendLeaseDataSetup"/>
           <include name="tearDown"/>
           <include name="settingUpReport"/>
+          <include name="FrontendLeaseDataSetup"/>
         </methods>
       </class> <!-- scenarios.LeaseDataSetup_Test -->
     </classes>

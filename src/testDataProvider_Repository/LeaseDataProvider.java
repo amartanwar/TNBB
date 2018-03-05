@@ -8,18 +8,30 @@ public class LeaseDataProvider extends DataProviderGenerator
 
 {
 		
-	// Lease Data Provider
-	@DataProvider(name ="DataProvider_LeaseSetup")
-	public static Object[][] Lease()
+	// Back end Lease Data Provider
+	@DataProvider(name ="DataProvider_BackendLeaseSetup")
+	public static Object[][] BackendLease()
 	{
 		
-		String excelName = "Lease_ExcelModel";
-		Object[][] leaseData=objectGenerator(excelName,"LeaseParameters");
+		String excelName = "BackendLease_ExcelModel";
+		Object[][] leaseData=objectGeneratorWithMultiSheet(excelName);
 		return leaseData; 
 	
 	}
 	
 
+	// Front end Lease Data Provider
+	@DataProvider(name ="DataProvider_FrontendLeaseSetup")
+	public static Object[][] FrontendLease()
+	{
+		
+		String excelName = "FrontendLease_ExcelModel";
+		//Object[][] leaseData=objectGenerator(excelName,"LeaseParameters");
+		Object[][] leaseData=objectGeneratorWithMultiSheet(excelName);
+		return leaseData; 
+	
+	}
+	
 	
 
 		

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="-1" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test name="Test(failed)">
+<suite thread-count="-1" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)">
     <classes>
       <class name="scenarios.LeaseDataSetup_Test">
         <methods>
           <include name="closeApplication"/>
           <include name="openApplication"/>
+          <include name="BackendLeaseDataSetup"/>
           <include name="tearDown"/>
           <include name="settingUpReport"/>
-          <include name="LeaseDataSetup"/>
+          <include name="FrontendLeaseDataSetup"/>
         </methods>
       </class> <!-- scenarios.LeaseDataSetup_Test -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -99,7 +99,7 @@ public class ExcelComparator
 				{
 					System.out.println("       Row "+i+" - is not Equal in both the sheets");
 					status=false;
-					break;
+					
 				}
 				
 				else
@@ -235,7 +235,7 @@ public class ExcelComparator
 			catch(Exception e1)
 			{
 //				System.out.println("No record found at given cell");
-				value="Blank";
+				value="";
 			}
 		}
 		

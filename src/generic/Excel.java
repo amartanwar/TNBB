@@ -7,7 +7,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-public class excel
+public class Excel
 {
 
 	public static String getCellValue (String path,String sheetName,int rowNum, int cellNum) 

@@ -29,7 +29,7 @@ import pom.LeaseServicingPage;
 import pom.LeaseStructurePage;
 import pom.LeaseTaxFlowsPage;
 
-public class LeaseDataSetupScript
+public class BackendLeaseDataSetupScript
 {
 	
 	

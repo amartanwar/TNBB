@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/1</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/2</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 23 12:31:07 IST 2018</td>
+<td>Started on:</td><td>Mon Mar 05 17:44:39 IST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>101 seconds (101326 ms)</td>
+<tr><td>Total time:</td><td>5 seconds (5391 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,7 +76,7 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='scenarios.LeaseDataSetup_Test.openApplication()'><b>openApplication</b><br>Test class: scenarios.LeaseDataSetup_Test</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: Returned value cannot be converted to List&lt;String&gt;: {error=invalid session id, message=session 3a40196e-6cd5-4dc1-b089-34f5b81734c3 does not exist}
+<td><div><pre>org.openqa.selenium.WebDriverException: Returned value cannot be converted to List&lt;String&gt;: {error=invalid session id, message=session 947441bc-ec33-411f-bae6-001a467239cf does not exist}
 Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:07:36.161Z&apos;
 System info: host: &apos;LW-NIRUSH&apos;, ip: &apos;192.168.1.169&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: driver.version: RemoteWebDriver
@@ -85,7 +85,7 @@ Driver info: driver.version: RemoteWebDriver
 	at generic.SwitchControlToNextWindow$2.apply(SwitchControlToNextWindow.java:1)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	at generic.SwitchControlToNextWindow.waitForWndows(SwitchControlToNextWindow.java:64)
-	at generic.BaseTest.openApplication(BaseTest.java:73)
+	at generic.BaseTest.openApplication(BaseTest.java:77)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -117,8 +117,8 @@ Driver info: driver.version: RemoteWebDriver
 Caused by: java.lang.ClassCastException: com.google.common.collect.Maps$TransformedEntriesMap cannot be cast to java.base/java.util.List
 	at org.openqa.selenium.remote.RemoteWebDriver.getWindowHandles(RemoteWebDriver.java:508)
 	... 33 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1036343065", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1036343065'><pre>org.openqa.selenium.WebDriverException: Returned value cannot be converted to List&lt;String&gt;: {error=invalid session id, message=session 3a40196e-6cd5-4dc1-b089-34f5b81734c3 does not exist}
+</pre></div><a href='#' onClick='toggleBox("stack-trace121245483", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace121245483'><pre>org.openqa.selenium.WebDriverException: Returned value cannot be converted to List&lt;String&gt;: {error=invalid session id, message=session 947441bc-ec33-411f-bae6-001a467239cf does not exist}
 Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:07:36.161Z&apos;
 System info: host: &apos;LW-NIRUSH&apos;, ip: &apos;192.168.1.169&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: driver.version: RemoteWebDriver
@@ -127,7 +127,7 @@ Driver info: driver.version: RemoteWebDriver
 	at generic.SwitchControlToNextWindow$2.apply(SwitchControlToNextWindow.java:1)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	at generic.SwitchControlToNextWindow.waitForWndows(SwitchControlToNextWindow.java:64)
-	at generic.BaseTest.openApplication(BaseTest.java:73)
+	at generic.BaseTest.openApplication(BaseTest.java:77)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -176,88 +176,6 @@ Caused by: java.lang.ClassCastException: com.google.common.collect.Maps$Transfor
 <td>0</td>
 <td>scenarios.LeaseDataSetup_Test@47987356</td></tr>
 </table><p>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='scenarios.LeaseDataSetup_Test.operatingLeaseDataSetup()'><b>operatingLeaseDataSetup</b><br>Test class: scenarios.LeaseDataSetup_Test<br>Parameters: {BIType2Code=, Type1DueDate1=1/1/2019, Type3DueDate1=, totalPaymentOnCommencement=, leaseRental=1000, idcAmount=500, Type2BlendedAmount1=, BIType1Code=BI-FAS91-Asset Based, IDCTemplate=IDC-Amortize-Automation, BIType4Code=, assetCount=1, otpLease=yes, leasePrimaryInventoryAlias1=204188, leaseEconomicLife=5, LtrToARGLTemplate=LR to AR OPRT, ProductType=A, leaseNumberOfPayments=12, Type4BlendedName1=, numberOfBItypes=1, Type3BlendedAmount1=, lease_sequenceNumber=AT-1-204188, residualExpectedAmount=1000, Type3BlendedName1=, leaseInvoiceGroup=jj invoice group, paymentsDueOnInception=, leaseBookingGLTemplate=FASB OP, Type2BlendedName1=, numberofBItype4=, numberofBItype3=, numberofBItype2=, numberofBItype1=1, SlNo=1, Type1BlendedName1=BI-1, leaseCommencementDate=1/1/2019, Type4BlendedAmount1=, leaseAlias=AT-1-204188, dueDay=1, Type2DueDate1=, Type4DueDate1=, customerResidualGuaranteeAmount=1000, accountNumber=1, structure=arrear, BIType3Code=, BIType2=, OTPARGLTemplate=OverTerm Payment AR Finance-CS, BIType1=AssetBased-FAS91, leaseAccountingTreatment=Operating, Type1BlendedAmount1=100, BIType4=, BIType3=, remainingLife=0, residualBookedAmount=1000, leaseInventoryAlias2=, leaseInventoryAlias3=, leaseInventoryAlias4=}</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: Cannot locate element with text: Operating
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:07:36.161Z&apos;
-System info: host: &apos;LW-NIRUSH&apos;, ip: &apos;192.168.1.169&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
-Driver info: driver.version: unknown
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:151)
-	at pom.LeaseClassificationPage.selectLeaseAccountingTreatment(LeaseClassificationPage.java:116)
-	at testScripts.LeaseDataSetupScript.leaseDataSetupScript(LeaseDataSetupScript.java:190)
-	at scenarios.LeaseDataSetup_Test.operatingLeaseDataSetup(LeaseDataSetup_Test.java:32)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:571)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
-	at org.testng.TestNG.runSuites(TestNG.java:1028)
-	at org.testng.TestNG.run(TestNG.java:996)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace5162023", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace5162023'><pre>org.openqa.selenium.NoSuchElementException: Cannot locate element with text: Operating
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:07:36.161Z&apos;
-System info: host: &apos;LW-NIRUSH&apos;, ip: &apos;192.168.1.169&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
-Driver info: driver.version: unknown
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:151)
-	at pom.LeaseClassificationPage.selectLeaseAccountingTreatment(LeaseClassificationPage.java:116)
-	at testScripts.LeaseDataSetupScript.leaseDataSetupScript(LeaseDataSetupScript.java:190)
-	at scenarios.LeaseDataSetup_Test.operatingLeaseDataSetup(LeaseDataSetup_Test.java:32)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:571)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
-	at org.testng.TestNG.runSuites(TestNG.java:1028)
-	at org.testng.TestNG.run(TestNG.java:996)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>87</td>
-<td>scenarios.LeaseDataSetup_Test@47987356</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -266,8 +184,86 @@ Driver info: driver.version: unknown
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='scenarios.LeaseDataSetup_Test.operatingLeaseDataSetup()'><b>operatingLeaseDataSetup</b><br>Test class: scenarios.LeaseDataSetup_Test</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: Returned value cannot be converted to List&lt;String&gt;: {error=invalid session id, message=session 3a40196e-6cd5-4dc1-b089-34f5b81734c3 does not exist}
+<td title='scenarios.LeaseDataSetup_Test.BackendLeaseDataSetup()'><b>BackendLeaseDataSetup</b><br>Test class: scenarios.LeaseDataSetup_Test</td>
+<td><div><pre>java.lang.RuntimeException: java.lang.NullPointerException
+	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:49)
+	at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:131)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:706)
+	at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:49)
+	at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:37)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:914)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.NullPointerException
+	at generic.Excel.getRowCount(Excel.java:140)
+	at generic.DataProviderGenerator.objectGeneratorWithMultiSheet(DataProviderGenerator.java:41)
+	at testDataProvider_Repository.LeaseDataProvider.BackendLease(LeaseDataProvider.java:17)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:74)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:45)
+	... 22 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1957099969", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1957099969'><pre>java.lang.RuntimeException: java.lang.NullPointerException
+	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:49)
+	at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:131)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:706)
+	at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:49)
+	at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:37)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:914)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.NullPointerException
+	at generic.Excel.getRowCount(Excel.java:140)
+	at generic.DataProviderGenerator.objectGeneratorWithMultiSheet(DataProviderGenerator.java:41)
+	at testDataProvider_Repository.LeaseDataProvider.BackendLease(LeaseDataProvider.java:17)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:74)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:45)
+	... 22 more
+</pre></div></td>
+<td>0</td>
+<td>scenarios.LeaseDataSetup_Test@47987356</td></tr>
+<tr>
+<td title='scenarios.LeaseDataSetup_Test.FrontendLeaseDataSetup()'><b>FrontendLeaseDataSetup</b><br>Test class: scenarios.LeaseDataSetup_Test</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: Returned value cannot be converted to List&lt;String&gt;: {error=invalid session id, message=session 947441bc-ec33-411f-bae6-001a467239cf does not exist}
 Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:07:36.161Z&apos;
 System info: host: &apos;LW-NIRUSH&apos;, ip: &apos;192.168.1.169&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: driver.version: RemoteWebDriver
@@ -276,7 +272,7 @@ Driver info: driver.version: RemoteWebDriver
 	at generic.SwitchControlToNextWindow$2.apply(SwitchControlToNextWindow.java:1)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	at generic.SwitchControlToNextWindow.waitForWndows(SwitchControlToNextWindow.java:64)
-	at generic.BaseTest.openApplication(BaseTest.java:73)
+	at generic.BaseTest.openApplication(BaseTest.java:77)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -308,8 +304,8 @@ Driver info: driver.version: RemoteWebDriver
 Caused by: java.lang.ClassCastException: com.google.common.collect.Maps$TransformedEntriesMap cannot be cast to java.base/java.util.List
 	at org.openqa.selenium.remote.RemoteWebDriver.getWindowHandles(RemoteWebDriver.java:508)
 	... 33 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1124937761", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1124937761'><pre>org.openqa.selenium.WebDriverException: Returned value cannot be converted to List&lt;String&gt;: {error=invalid session id, message=session 3a40196e-6cd5-4dc1-b089-34f5b81734c3 does not exist}
+</pre></div><a href='#' onClick='toggleBox("stack-trace1752220610", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1752220610'><pre>org.openqa.selenium.WebDriverException: Returned value cannot be converted to List&lt;String&gt;: {error=invalid session id, message=session 947441bc-ec33-411f-bae6-001a467239cf does not exist}
 Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:07:36.161Z&apos;
 System info: host: &apos;LW-NIRUSH&apos;, ip: &apos;192.168.1.169&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: driver.version: RemoteWebDriver
@@ -318,7 +314,7 @@ Driver info: driver.version: RemoteWebDriver
 	at generic.SwitchControlToNextWindow$2.apply(SwitchControlToNextWindow.java:1)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
 	at generic.SwitchControlToNextWindow.waitForWndows(SwitchControlToNextWindow.java:64)
-	at generic.BaseTest.openApplication(BaseTest.java:73)
+	at generic.BaseTest.openApplication(BaseTest.java:77)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)

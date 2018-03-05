@@ -9,7 +9,7 @@
           <include name="openApplication"/>
           <include name="tearDown"/>
           <include name="settingUpReport"/>
-          <include name="LeaseDataSetup"/>
+          <include name="LeaseDataSetup" invocation-numbers="0"/>
         </methods>
       </class> <!-- scenarios.LeaseDataSetup_Test -->
     </classes>

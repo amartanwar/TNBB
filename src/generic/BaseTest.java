@@ -33,6 +33,8 @@ public abstract class BaseTest implements AutoConst
 	public static ExtentTest test;
 	public static String snap;
 	
+	
+	// Runs before the suites runs and sets up the Reporting Functionality
 	@BeforeSuite
 	public void settingUpReport()
 	{
@@ -52,6 +54,8 @@ public abstract class BaseTest implements AutoConst
 	}
 	
 	
+	// Runs before every method
+	// Logins to the application
 	@BeforeMethod
 	public void openApplication() throws InterruptedException
 	{
@@ -82,7 +86,8 @@ public abstract class BaseTest implements AutoConst
 	}
 	
 	
-	
+	//Runs after every method
+	//Closes the LeaseWave application
 	@AfterMethod
 	public void closeApplication(ITestResult result) throws IOException, InterruptedException
 	{
@@ -126,6 +131,9 @@ public abstract class BaseTest implements AutoConst
 		
 		
 	}
+	
+	
+	//Runs after the suite
 	@AfterSuite
 	public void tearDown()
 	{
