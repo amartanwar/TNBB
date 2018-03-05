@@ -8,6 +8,6 @@ public interface AutoConst
 	String GECKO_VALUE="./drivers/geckodriver.exe";
 	String IE_KEY="webdriver.ie.driver";
 	String IE_VALUE="./drivers/IEDriverServer.exe";
-	String SNAP_PATH="D:\\BBNT FasB Automation\\TNBB\\ScreenShots\\" ;
+	String SNAP_PATH="./ScreenShots/" ;
 	String InputXlPath="./TestData/Input.xlsx";
 }
